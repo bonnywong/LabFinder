@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="labfinder">
+    <output-path>$PROJECT_DIR$/out/artifacts/labfinder</output-path>
+    <root id="archive" name="labfinder.war">
+      <element id="javaee-facet-resources" facet="LabFinderProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="LabFinderProject" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="facebook4j-core-2.4.3" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
