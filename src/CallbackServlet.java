@@ -29,7 +29,7 @@ public class CallbackServlet extends HttpServlet{
             System.out.println(e.getMessage());
         }
 
-        //TODO: Persist the user here.
+        //Persist the user.
         UserEntity user = new UserEntity();
         try {
             user.setName(facebook.getName());
@@ -38,7 +38,7 @@ public class CallbackServlet extends HttpServlet{
         } catch (FacebookException e) {
             e.printStackTrace();
         }
-
+        
         response.sendRedirect(request.getContextPath() + "/index.jsp");
     }
 }

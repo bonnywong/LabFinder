@@ -2,10 +2,7 @@ package Persist;
 
 import Models.UserEntity;
 
-import javax.persistence.EntityExistsException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -19,6 +16,10 @@ public class JPAStore {
         em = emfactory.createEntityManager();
     }
 
+    /**
+     * Stores a UserEntity into the database.
+     * @param user UserEntity to be stored
+     */
     public void persistUser(UserEntity user) {
         try {
             em.getTransaction().begin();
@@ -30,13 +31,36 @@ public class JPAStore {
 
     }
 
-    public UserEntity fetchUser() {
-        return null;
+
+    /**
+     * Fetch a user based on unique parameter facebookId
+     * @param facebookId
+     * @return
+     */
+    public UserEntity fetchUser(Long facebookId) {
+        Query query = em.createQuery("select u from UserEntity u where u.facebookId = :facebookId");
+        query.setParameter("facebookId", facebookId);
+        return (UserEntity) query.getSingleResult();
     }
 
+    /**
+     * Fetch users with name
+     * @param name
+     * @return List of UserEntities with provided name
+     */
+    public  List<UserEntity> fetchUser(String name) {
+        Query query = em.createQuery("select u from UserEntity u where u.name = :name");
+        query.setParameter("name", name);
+        return query.getResultList();
+    }
+
+    /**
+     * Fetch all users in database.
+     * @return List of all UserEntities in database.
+     */
     public List<UserEntity> fetchAllUsers() {
-
-        return null;
-
+        //TODO: Case if db has no Users
+        Query query = em.createQuery("select u from UserEntity u");
+        return query.getResultList();
     }
 }

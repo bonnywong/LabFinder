@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/LabFinderProject"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="facebook4j-core-2.4.3" value="project"/>
+		<level name="javax.servlet" value="project"/>
+		<level name="JPA 2.0-2.0" value="project"/>
+		<level name="javax.persistence" value="project"/>
+		<level name="eclipselink" value="project"/>
+		<level name="mysql-connector-java-5.1.38-bin" value="project"/>
+	</levels>
+</component>

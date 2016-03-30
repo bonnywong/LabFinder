@@ -12,6 +12,8 @@
     <title>User Settings.</title>
 </head>
 <body>
+Hello, ${facebook.name} (${facebook.id}).
+<br>
 Message: <%=request.getParameter("message")%>
 <br>
 HERE WILL BE SETTINGS.

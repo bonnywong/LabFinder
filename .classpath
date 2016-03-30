@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/facebook4j-core-2.4.3"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javax.servlet"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JPA 2.0-2.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javax.persistence"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/eclipselink"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql-connector-java-5.1.38-bin"/>
+	<classpathentry kind="output" path="out/production/LabFinderProject"/>
+</classpath>
