@@ -11,6 +11,6 @@ public class InfoServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
-
+        //Hej.
     }
 }
