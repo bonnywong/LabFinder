@@ -14,7 +14,7 @@
 </head>
 <body>
 <tag:notlogged>
-    <a href="login">Login using Facebook!</a>
+    <a href="login">Login using Facebook! Henrik Was Here!!! YEEAAA</a>
 </tag:notlogged>
 <tag:logged>
     You have logged in!
