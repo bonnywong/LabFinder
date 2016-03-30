@@ -1,4 +1,7 @@
+import Models.UserEntity;
+import Persist.JPAStore;
 import facebook4j.Facebook;
+import facebook4j.FacebookException;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +12,8 @@ import java.io.IOException;
  * Created by swebo_000 on 2016-03-27.
  */
 public class CallbackServlet extends HttpServlet{
+
+    JPAStore db = new JPAStore();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("In Callback.");
@@ -24,6 +29,16 @@ public class CallbackServlet extends HttpServlet{
             System.out.println(e.getMessage());
         }
 
-        response.sendRedirect(request.getContextPath() + "/");
+        //TODO: Persist the user here.
+        UserEntity user = new UserEntity();
+        try {
+            user.setName(facebook.getName());
+            user.setFacebookId(Long.parseLong(facebook.getId()));
+            db.persistUser(user);
+        } catch (FacebookException e) {
+            e.printStackTrace();
+        }
+
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
     }
 }

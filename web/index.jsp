@@ -14,7 +14,7 @@
   </head>
   <body>
     <tag:notlogged>
-    <a href="login">Login using Facebook!</a>
+      You're not logged in  for some strange reason. You shouldn't be here.
     </tag:notlogged>
     <tag:logged>
       You have logged in!
@@ -23,7 +23,7 @@
       <br>
       Your ID: ${facebook.id}.
       <br>
-      <a href="">Display more info.</a>
+      <a href="settings">Settings.</a>
       <br>
       <a href="logout">Log out.</a>
     </tag:logged>

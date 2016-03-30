@@ -24,7 +24,7 @@ public class LogoutServlet extends HttpServlet {
             int index = next.lastIndexOf("/");
             next.replace(index+1, next.length(), "");
             response.sendRedirect("http://www.facebook.com/logout.php?next=" + next.toString() + "&access_token=" + accessToken);
-            response.sendRedirect("localhost:8080/labfinder/"); //Not working
+            response.sendRedirect("localhost:8080/labfinder/"); //Not working?
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

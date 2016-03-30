@@ -1,3 +1,5 @@
+import facebook4j.Facebook;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class InfoServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
+        Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
 
     }
 }

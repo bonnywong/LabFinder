@@ -16,41 +16,46 @@
       </column>
       <column id="5" parent="2" name="facebook_id">
         <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
+        <data-type>bigint(20)</data-type>
       </column>
       <column id="6" parent="2" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
       <column id="7" parent="2" name="email">
-        <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
       <column id="8" parent="2" name="program">
-        <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
       <column id="9" parent="2" name="master">
-        <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
       <column id="10" parent="2" name="comments">
-        <mandatory>1</mandatory>
         <data-type>varchar(2000)</data-type>
       </column>
-      <key id="11" parent="2" name="PRIMARY">
+      <index id="11" parent="2" name="facebook_id">
+        <columns>facebook_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="12" parent="2" name="facebook_id">
+        <columns>facebook_id</columns>
+        <underlying-index>facebook_id</underlying-index>
+      </key>
+      <key id="13" parent="2" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="12" parent="3" name="id">
+      <column id="14" parent="3" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="13" parent="3" name="butt">
+      <column id="15" parent="3" name="butt">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="14" parent="3" name="test">
+      <column id="16" parent="3" name="test">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>

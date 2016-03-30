@@ -13,6 +13,8 @@ import java.io.IOException;
  */
 public class LoginServlet extends HttpServlet {
 
+
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("Attempting to log in.");
 

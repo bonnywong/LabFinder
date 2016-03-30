@@ -3,13 +3,13 @@ package Models;
 import javax.persistence.*;
 
 /**
- * Created by swebo_000 on 2016-03-28.
+ * Created by swebo_000 on 2016-03-29.
  */
 @Entity
 @Table(name = "User", schema = "fypniqhc_intnet16", catalog = "")
 public class UserEntity {
     private int id;
-    private int facebookId;
+    private long facebookId;
     private String name;
     private String email;
     private String program;
@@ -17,6 +17,7 @@ public class UserEntity {
     private String comments;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -28,11 +29,11 @@ public class UserEntity {
 
     @Basic
     @Column(name = "facebook_id")
-    public int getFacebookId() {
+    public long getFacebookId() {
         return facebookId;
     }
 
-    public void setFacebookId(int facebookId) {
+    public void setFacebookId(long facebookId) {
         this.facebookId = facebookId;
     }
 
@@ -107,7 +108,7 @@ public class UserEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + facebookId;
+        result = 31 * result + (int) (facebookId ^ (facebookId >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (program != null ? program.hashCode() : 0);

@@ -16,6 +16,10 @@
         <servlet-name>callback</servlet-name>
         <servlet-class>CallbackServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>settings</servlet-name>
+        <servlet-class>SettingsServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -29,9 +33,13 @@
         <servlet-name>callback</servlet-name>
         <url-pattern>/callback</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>settings</servlet-name>
+        <url-pattern>/settings</url-pattern>
+    </servlet-mapping>
     
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
 </web-app>
