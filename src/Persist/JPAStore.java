@@ -51,6 +51,7 @@ public class JPAStore {
     public  List<UserEntity> fetchUser(String name) {
         Query query = em.createQuery("select u from UserEntity u where u.name = :name");
         query.setParameter("name", name);
+        System.out.println("boop");
         return query.getResultList();
     }
 

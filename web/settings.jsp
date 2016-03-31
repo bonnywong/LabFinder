@@ -1,4 +1,6 @@
-<%--
+<%@ page import="Persist.JPAStore" %>
+<%@ page import="Models.UserEntity" %>
+<%@ page import="facebook4j.Facebook" %><%--
   Created by IntelliJ IDEA.
   User: swebo_000
   Date: 2016-03-29
@@ -13,15 +15,35 @@
 </head>
 <body>
 Hello, ${facebook.name} (${facebook.id}).
-<br>
+<%
+    JPAStore db = new JPAStore();
+    Facebook facebook = (Facebook) session.getAttribute("facebook");
+    UserEntity currentUser = (UserEntity) db.fetchUser(%>${facebook.id}<%);
+
+%>
+        <br>
 Message: <%=request.getParameter("message")%>
 <br>
 HERE WILL BE SETTINGS.
 <form>
-    Email:<br>
+    Current Email: <%currentUser.getEmail();%>
+    <br>
     <input type="text" name="email"><br>
-    Program:<br>
+
+    Current Program: <%currentUser.getProgram();%>
+    <br>
     <input type="text" name="program">
+
+    Current Master: <%currentUser.getMaster();%>
+    <br>
+    <input type="text" name="program">
+
+    Current Comment: <%currentUser.getComments();%>
+    <br>
+    <input type="text" name="program">
+
+    <input type="submit" value="Submit.">
+
 </form>
 </body>
 </html>
