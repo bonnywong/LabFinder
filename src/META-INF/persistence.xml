@@ -5,15 +5,15 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>Models.UserEntity</class>
         <properties>
-            <property name="eclipselink.jdbc.url" value="jdbc:mysql://c151.lithium.hosting:3306/fypniqhc_intnet16"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://mysql-vt2016.csc.kth.se:3306/henron"/>
             <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="eclipselink.jdbc.user" value="fypniqhc_intnet"/>
-            <property name="eclipselink.jdbc.password" value="säkertsomfan"/>
+            <property name="eclipselink.jdbc.user" value="henron_admin"/>
+            <property name="eclipselink.jdbc.password" value="JRz5piqN"/>
 
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://c151.lithium.hosting:3306/fypniqhc_intnet16"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql-vt2016.csc.kth.se:3306/henron"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.user" value="fypniqhc_intnet"/>
-            <property name="javax.persistence.password" value="säkertsomfan"/>
+            <property name="javax.persistence.jdbc.user" value="henron_admin"/>
+            <property name="javax.persistence.password" value="JRz5piqN"/>
         </properties>
     </persistence-unit>
 </persistence>
