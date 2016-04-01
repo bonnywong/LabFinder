@@ -41,6 +41,7 @@ public class JPAStore {
         old_user.setProgram(user.getProgram());
         old_user.setMaster(user.getMaster());
         old_user.setEmail(user.getEmail());
+        old_user.setSchool(user.getSchool());
         old_user.setComments(user.getComments());
 
         em.getTransaction().commit();

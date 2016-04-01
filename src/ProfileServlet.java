@@ -24,6 +24,7 @@ public class ProfileServlet extends HttpServlet {
             String name = request.getParameter("user_name");
             Long fb_id = Long.parseLong(request.getParameter("user_fb_id"));
             String email = request.getParameter("email");
+            String school = request.getParameter("school");
             String program = request.getParameter("program");
             String master = request.getParameter("master");
             String comments = request.getParameter("comments");
@@ -33,6 +34,7 @@ public class ProfileServlet extends HttpServlet {
             user.setEmail(email);
             user.setComments(comments);
             user.setFacebookId(fb_id);
+            user.setSchool(school);
             user.setProgram(program);
             user.setMaster(master);
 

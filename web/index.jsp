@@ -25,7 +25,7 @@
       <br>
       <a href="settings">Settings.</a>
       <br>
-      <a href="profile">Profile.</a>
+      <a href="profile.jsp">Profile.</a>
       <br>
       <a href="logout">Log out.</a>
     </tag:logged>

@@ -15,6 +15,7 @@ public class UserEntity {
     private String program;
     private String master;
     private String comments;
+    private String school;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +23,6 @@ public class UserEntity {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -32,7 +32,6 @@ public class UserEntity {
     public long getFacebookId() {
         return facebookId;
     }
-
     public void setFacebookId(long facebookId) {
         this.facebookId = facebookId;
     }
@@ -42,7 +41,6 @@ public class UserEntity {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -52,7 +50,6 @@ public class UserEntity {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -62,9 +59,17 @@ public class UserEntity {
     public String getProgram() {
         return program;
     }
-
     public void setProgram(String program) {
         this.program = program;
+    }
+
+    @Basic
+    @Column(name = "school")
+    public String getSchool() {
+        return school;
+    }
+    public void setSchool(String school) {
+        this.school = school;
     }
 
     @Basic
@@ -72,7 +77,6 @@ public class UserEntity {
     public String getMaster() {
         return master;
     }
-
     public void setMaster(String master) {
         this.master = master;
     }
@@ -82,7 +86,6 @@ public class UserEntity {
     public String getComments() {
         return comments;
     }
-
     public void setComments(String comments) {
         this.comments = comments;
     }
@@ -101,6 +104,7 @@ public class UserEntity {
         if (program != null ? !program.equals(that.program) : that.program != null) return false;
         if (master != null ? !master.equals(that.master) : that.master != null) return false;
         if (comments != null ? !comments.equals(that.comments) : that.comments != null) return false;
+        if (comments != null ? !school.equals(that.school) : that.school != null) return false;
 
         return true;
     }
@@ -114,6 +118,7 @@ public class UserEntity {
         result = 31 * result + (program != null ? program.hashCode() : 0);
         result = 31 * result + (master != null ? master.hashCode() : 0);
         result = 31 * result + (comments != null ? comments.hashCode() : 0);
+        result = 31 * result + (comments != null ? school.hashCode() : 0);
         return result;
     }
 }
