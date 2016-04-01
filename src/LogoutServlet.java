@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LogoutServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("Logout Servlet Called!");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
         String accessToken = "";
         try {

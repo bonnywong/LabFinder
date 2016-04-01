@@ -25,6 +25,8 @@
       <br>
       <a href="settings">Settings.</a>
       <br>
+      <a href="profile">Profile.</a>
+      <br>
       <a href="logout">Log out.</a>
     </tag:logged>
   </body>

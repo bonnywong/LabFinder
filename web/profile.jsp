@@ -25,22 +25,27 @@ Hello, ${facebook.name} (${facebook.id}).
 Message: <%=request.getParameter("message")%>
 <br>
 HERE WILL BE SETTINGS.
-<form>
+<form action ="profile">
+    <input type="hidden" name="profile_action" value="insertProfileUpdate">
+
+    <input type="hidden" name="user_name" value=${facebook.name}>
+    <input type="hidden" name="user_fb_id" value=${facebook.id}>
+
     Current Email: <%currentUser.getEmail();%>
+    <input type="text" name="email">
     <br>
-    <input type="text" name="email"><br>
 
     Current Program: <%currentUser.getProgram();%>
-    <br>
     <input type="text" name="program">
+    <br>
 
     Current Master: <%currentUser.getMaster();%>
+    <input type="text" name="master">
     <br>
-    <input type="text" name="program">
 
     Current Comment: <%currentUser.getComments();%>
+    <input type="text" name="comments">
     <br>
-    <input type="text" name="program">
 
     <input type="submit" value="Submit.">
 

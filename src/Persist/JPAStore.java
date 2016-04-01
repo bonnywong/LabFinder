@@ -28,9 +28,23 @@ public class JPAStore {
         } catch (Exception e) {
             System.out.println("Entity already exists.");
         }
-
     }
 
+
+    public void updateUser(UserEntity user){
+
+        UserEntity id_user = fetchUser(user.getFacebookId());
+        UserEntity old_user = em.find(UserEntity.class, id_user.getId());
+        em.getTransaction().begin();
+
+        old_user.setName(user.getName());
+        old_user.setProgram(user.getProgram());
+        old_user.setMaster(user.getMaster());
+        old_user.setEmail(user.getEmail());
+        old_user.setComments(user.getComments());
+
+        em.getTransaction().commit();
+    }
 
     /**
      * Fetch a user based on unique parameter facebookId
