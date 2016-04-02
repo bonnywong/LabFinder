@@ -10,5 +10,6 @@
 		<level name="javax.persistence" value="project"/>
 		<level name="eclipselink" value="project"/>
 		<level name="mysql-connector-java-5.1.38-bin" value="project"/>
+		<level name="standard-1.1.2" value="project"/>
 	</levels>
 </component>

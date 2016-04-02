@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -16,7 +18,15 @@ public class CoursesServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         String message = "null";
-        request.setAttribute("all_courses", new JPAStore().fetchAllCourses());
+        List<CourseEntity> arrayList = new JPAStore().fetchAllCourses();
+        CourseEntity[] courselist = new CourseEntity[arrayList.size()];
+
+        int i = 0;
+        for(CourseEntity c : arrayList){
+            courselist[i] = c;
+            i++;
+        }
+        request.setAttribute("all_courses", courselist);
 
 
 

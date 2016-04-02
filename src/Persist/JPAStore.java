@@ -4,6 +4,7 @@ import Models.CourseEntity;
 import Models.UserEntity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -98,10 +99,10 @@ public class JPAStore {
 
     /**
      * Fetch all users in database.
-     * @return List of all UserEntities in database.
+     * @return List of all CourseEntities in database.
      */
     public List<CourseEntity> fetchAllCourses() {
-        //TODO: Case if db has no Users
+        //TODO: Case if db has no Courses
         Query query = em.createQuery("select c from CourseEntity c");
         return query.getResultList();
     }
@@ -109,3 +110,22 @@ public class JPAStore {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

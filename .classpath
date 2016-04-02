@@ -8,5 +8,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javax.persistence"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/eclipselink"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql-connector-java-5.1.38-bin"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/standard-1.1.2"/>
 	<classpathentry kind="output" path="out/production/LabFinderProject"/>
 </classpath>

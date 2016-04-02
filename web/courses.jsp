@@ -9,7 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <%
@@ -229,29 +229,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         <%
-            CourseEntity[] courses = (CourseEntity[])request.getAttribute("all_courses");
-            request.setAttribute("all_courses", courses);
+            CourseEntity[] all_courses = (CourseEntity[])request.getAttribute("all_courses");
+            request.setAttribute("all_courses", all_courses);
         %>
         <div id=wrapperright>
             <div id="course">
-                <h1>All available courses:</h1>
-                <br>
-                    <c:forEach items="${courses}" var="course">
-                        <c:out value="${course.code}" /> - <c:out value="${course.name}" /></br>
+                <h5>All available courses:</h5>
+                    <c:forEach items="${all_courses}" var="course">
+                        <h5><c:out value="${course.code}" /> - <c:out value="${course.name}" /></h5>
                     </c:forEach>
 
                 </h4>
