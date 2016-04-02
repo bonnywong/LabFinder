@@ -1,6 +1,7 @@
 <%@ page import="Persist.JPAStore" %>
 <%@ page import="Models.UserEntity" %>
-<%@ page import="facebook4j.Facebook" %><%--
+<%@ page import="facebook4j.Facebook" %>
+<%@ page import="Models.CourseEntity" %><%--
   Created by IntelliJ IDEA.
   User: swebo_000
   Date: 2016-03-29
@@ -182,10 +183,10 @@
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#search">Search partner</a></li>
-        <li><a class="active">Settings</a></li>
+        <li><a href="settings">Settings</a></li>
         <li><a href="profile">Profile</a></li>
         <li><a href="logout">Logout</a></li>
-        <li><a href="courses">Courses</a></li>
+        <li><a class="courses">Courses</a></li>
 
         <li style="float:right"><a class="about" href="#about">About</a></li>
         <li style="float:right"><a class="logout" href="#logout">Logout</a></li>
@@ -205,47 +206,54 @@
             </div>
 
             <div id="description">
-                <form action ="profile">
-                    <input type="hidden" name="profile_action" value="insertProfileUpdate">
+                <form action ="courses">
+                    <input type="hidden" name="courses_action" value="insertNewCourse">
+                    <h2>New Course</h2>
 
-                    <input type="hidden" name="user_name" value=${facebook.name}>
-                    <input type="hidden" name="user_fb_id" value=${facebook.id}>
-
-                    Current Email: <%currentUser.getEmail();%>
-                    <input type="text" name="email">
+                    Course code: <input type="text" name="course_code">
                     <br>
 
-                    Current School: <%currentUser.getSchool();%>
-                    <input type="text" name="school">
+                    Course name: <input type="text" name="course_name">
                     <br>
 
-                    Current Program: <%currentUser.getProgram();%>
-                    <input type="text" name="program">
+                    Course description: <input type="text" name="course_description">
                     <br>
 
-                    Current Master: <%currentUser.getMaster();%>
-                    <input type="text" name="master">
-                    <br>
-
-                    Current Comment: <%currentUser.getComments();%>
-                    <input type="text" name="comments">
-                    <br>
-
-                    <input type="submit" value="Submit.">
+                    <input type="submit" value="Insert New Course">
 
                 </form>
             </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <%
+            CourseEntity[] courses = (CourseEntity[])request.getAttribute("all_courses");
+            request.setAttribute("all_courses", courses);
+        %>
         <div id=wrapperright>
             <div id="course">
-                <h1>Courses i'm taking:</h1>
-                <h4>
-                    DD2390 Internetprogrammering<br>
-                    DD2448 Kryptografins grunder <br>
-                    DD2372 Automater och språk <br>
-                    DD2459 Programvarutillförlitlighet <br>
-                    DD2471 Moderna databassystem och databastillämpningar <br>
+                <h1>All available courses:</h1>
+                <br>
+                    <c:forEach items="${courses}" var="course">
+                        <c:out value="${course.code}" /> - <c:out value="${course.name}" /></br>
+                    </c:forEach>
+
                 </h4>
             </div>
         </div>
@@ -253,3 +261,19 @@
 </center>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

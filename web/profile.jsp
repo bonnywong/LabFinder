@@ -183,6 +183,7 @@
         <li><a href="settings">Settings</a></li>
         <li><a class="active">Profile</a></li>
         <li><a href="logout">Logout</a></li>
+        <li><a href="courses">Courses</a></li>
 
         <li style="float:right"><a class="about" href="#about">About</a></li>
         <li style="float:right"><a class="logout" href="#logout">Logout</a></li>

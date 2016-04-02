@@ -1,5 +1,6 @@
 package Persist;
 
+import Models.CourseEntity;
 import Models.UserEntity;
 
 import javax.persistence.*;
@@ -79,4 +80,32 @@ public class JPAStore {
         Query query = em.createQuery("select u from UserEntity u");
         return query.getResultList();
     }
+
+    /**
+     * Stores a UserEntity into the database.
+     * @param course UserEntity to be stored
+     */
+    public void persistCourse(CourseEntity course) {
+        try {
+            em.getTransaction().begin();
+            em.persist(course);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("Entity already exists.");
+        }
+    }
+
+
+    /**
+     * Fetch all users in database.
+     * @return List of all UserEntities in database.
+     */
+    public List<CourseEntity> fetchAllCourses() {
+        //TODO: Case if db has no Users
+        Query query = em.createQuery("select c from CourseEntity c");
+        return query.getResultList();
+    }
+
+
+
 }
