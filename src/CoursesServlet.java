@@ -16,20 +16,8 @@ import java.util.List;
  */
 public class CoursesServlet extends HttpServlet {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) {
+    public void doPost(HttpServletRequest request, HttpServletResponse response){
         String message = "null";
-        List<CourseEntity> arrayList = new JPAStore().fetchAllCourses();
-        CourseEntity[] courselist = new CourseEntity[arrayList.size()];
-
-        int i = 0;
-        for(CourseEntity c : arrayList){
-            courselist[i] = c;
-            i++;
-        }
-        request.setAttribute("all_courses", courselist);
-
-
-
 
         String courses_action = request.getParameter("courses_action");
         if (courses_action != null && courses_action.equals("insertNewCourse")) {
@@ -51,12 +39,58 @@ public class CoursesServlet extends HttpServlet {
         }
 
 
+        //Here we attach the list of all courses to be returned to the jsp
+        List<CourseEntity> arrayList = new JPAStore().fetchAllCourses();
+        CourseEntity[] courselist = new CourseEntity[arrayList.size()];
 
+        int i = 0;
+        for(CourseEntity c : arrayList){
+            courselist[i] = c;
+            i++;
+        }
+        request.setAttribute("all_courses", courselist);
 
 
         try {
             RequestDispatcher rd =
-                    request.getRequestDispatcher("courses.jsp?message=" + "Debug: " + message);
+                    request.getRequestDispatcher("courses.jsp");
+            rd.forward(request, response);
+        }
+        catch(ServletException e){
+            System.out.print(e.getMessage());
+        }
+        catch(IOException e){
+            System.out.print(e.getMessage());
+        }
+    }
+
+
+
+
+
+
+
+
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
+        String message = "null";
+
+
+        //Here we attach the list of all courses to be returned to the jsp
+        List<CourseEntity> arrayList = new JPAStore().fetchAllCourses();
+        CourseEntity[] courselist = new CourseEntity[arrayList.size()];
+
+        int i = 0;
+        for(CourseEntity c : arrayList){
+            courselist[i] = c;
+            i++;
+        }
+        request.setAttribute("all_courses", courselist);
+
+
+        try {
+            RequestDispatcher rd =
+                    request.getRequestDispatcher("courses.jsp");
             rd.forward(request, response);
         }
         catch(ServletException e){
