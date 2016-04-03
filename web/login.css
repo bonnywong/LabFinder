@@ -1,0 +1,122 @@
+/*	87DFC2
+	56C8A3
+	35B289
+	18A476
+	06845B
+	*/
+h1 { color: #ffffff;
+	font-family: 'Raleway',sans-serif;
+	font-size: 62px; 
+	font-weight: 800; 
+	line-height: 72px; 
+	margin: 0 0 24px; 
+	text-align: center; 
+	text-transform: 
+}
+
+h2 { color: #ffffff; 
+	font-family: 'Raleway',sans-serif; 
+	font-size: 24px; 
+	font-weight: 10; 
+	margin: 0 0 0 0px;
+	}
+
+h3 { color: #ffffff; 
+	font-family: 'Raleway',sans-serif; 
+	font-size: 12px; 
+	font-weight: 10; 
+	margin: 0 0 0 0px;
+	}
+	
+/* login button */
+.loginButton {
+    border-radius: 10px;
+    background-color: black;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.loginButton {
+    background-color: #35B289;
+    color: white;
+}
+
+.loginButton:hover {
+    background-color: white;
+    color: #35B289;
+}
+/*end of login button*/
+
+input[type=text] {
+    width: 100%;
+    padding: 6px 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    color: #848D8A;
+}
+input[type=password] {
+    width: 100%;
+    padding: 6px 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    color: #848D8A;
+}
+
+
+#wrapper{
+    line-height:30px;
+    background-color: #199E72;
+    height:400px;
+    width:800px;
+    float:center;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#loginpart {
+    border-radius: 25px;
+    background: #06845b;
+    padding: 20px; 
+    width: 250px;
+    height: 180px; 
+    float: right;
+    margin:30px 20px 0px 20px;
+}
+#textpart{
+    border-radius: 10px;
+    background:#199E72;
+    color: white;
+    padding: 20px 0 0px 20px ; 
+    width: 450px;
+    height: 300px; 
+    float: left;
+    text-align: left;	
+}
+
+body{
+	background-color: #87dfc2;
+}
+
+.spacer{
+	display:block;
+	float:left;
+	clear:left;
+}
+p {
+	display:inline;
+	color:#FFF;
+}
+
+#facebookButton {
+	margin-left: -19px;
+    margin-right: auto;
+}

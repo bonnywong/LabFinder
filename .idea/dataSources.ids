@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - @localhost" uuid="d2ba9a07-f2e5-4506-8acf-ebfd54910f00">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
-  </data-source>
   <data-source name="MySQL - fypniqhc_intnet16@c151.lithium.hosting" uuid="2ad69a3c-0765-4e7b-bb78-6c6a1743d66e">
-    <database-info product="MySQL" version="5.5.5-10.1.13-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.5.5-10.1.13-MariaDB" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.7 ( Revision: ${svn.Revision} )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
-    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
       <schema id="1" name="fypniqhc_intnet16"/>
       <table id="2" parent="1" name="User"/>
       <table id="3" parent="1" name="test"/>
@@ -17,7 +14,6 @@
       <column id="5" parent="2" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
-        <sequence-identity>1</sequence-identity>
       </column>
       <column id="6" parent="2" name="facebook_id">
         <mandatory>1</mandatory>
@@ -70,7 +66,6 @@
       <column id="19" parent="4" name="course_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
-        <sequence-identity>1</sequence-identity>
       </column>
       <column id="20" parent="4" name="code">
         <data-type>varchar(50)</data-type>
