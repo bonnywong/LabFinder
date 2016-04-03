@@ -184,11 +184,11 @@
         <li><a href="#search">Search partner</a></li>
         <li><a class="active">Settings</a></li>
         <li><a href="profile">Profile</a></li>
-        <li><a href="logout">Logout</a></li>
-        <li><a href="courses">Courses</a></li>
 
+
+        <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
         <li style="float:right"><a class="about" href="#about">About</a></li>
-        <li style="float:right"><a class="logout" href="#logout">Logout</a></li>
+        <li style="float:right"><a class="logout" href="logout">Logout</a></li>
     </ul>
 
 

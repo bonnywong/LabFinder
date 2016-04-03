@@ -103,7 +103,7 @@ public class JPAStore {
      */
     public List<CourseEntity> fetchAllCourses() {
         //TODO: Case if db has no Courses
-        Query query = em.createQuery("select c from CourseEntity c");
+        Query query = em.createQuery("select u from CourseEntity u");
         return query.getResultList();
     }
 

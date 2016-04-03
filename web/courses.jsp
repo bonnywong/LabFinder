@@ -123,7 +123,7 @@
             color: #1b201e;
             font-family: 'Raleway',sans-serif;
             font-size: 11px;
-            font-weight: 10;
+            font-weight: 0;
             margin: 0 0 0 0px;
         }
 
@@ -185,11 +185,11 @@
         <li><a href="#search">Search partner</a></li>
         <li><a href="settings">Settings</a></li>
         <li><a href="profile">Profile</a></li>
-        <li><a href="logout">Logout</a></li>
-        <li><a class="courses">Courses</a></li>
 
+
+        <li style="float:right"><a class="active" href="courses">All Courses</a></li>
         <li style="float:right"><a class="about" href="#about">About</a></li>
-        <li style="float:right"><a class="logout" href="#logout">Logout</a></li>
+        <li style="float:right"><a class="logout" href="logout">Logout</a></li>
     </ul>
 
 
@@ -206,7 +206,7 @@
             </div>
 
             <div id="description">
-                <form action ="courses">
+                <form action ="courses" method="post">
                     <input type="hidden" name="courses_action" value="insertNewCourse">
                     <h2>New Course</h2>
 
