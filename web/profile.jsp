@@ -1,6 +1,7 @@
 <%@ page import="Persist.JPAStore" %>
 <%@ page import="Models.UserEntity" %>
-<%@ page import="facebook4j.Facebook" %><%--
+<%@ page import="facebook4j.Facebook" %>
+<%@ page import="Models.CourseEntity" %><%--
   Created by IntelliJ IDEA.
   User: swebo_000
   Date: 2016-03-29
@@ -8,7 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <%
@@ -209,14 +210,15 @@
 
         <div id=wrapperright>
             <div id="course">
-                <h1>Courses i'm taking:</h1>
-                <h4>
-                    DD2390 Internetprogrammering<br>
-                    DD2448 Kryptografins grunder <br>
-                    DD2372 Automater och språk <br>
-                    DD2459 Programvarutillförlitlighet <br>
-                    DD2471 Moderna databassystem och databastillämpningar <br>
-                </h4>
+                <%
+                    CourseEntity[] my_courses = (CourseEntity[])request.getAttribute("my_courses");
+                    request.setAttribute("my_courses", my_courses);
+                %>
+
+                <h5>All courses I'm taking:</h5>
+                <c:forEach items="${my_courses}" var="course">
+                    <h5><c:out value="${course.code}" /> - <c:out value="${course.name}" /></h5>
+                </c:forEach>
             </div>
         </div>
     </div>

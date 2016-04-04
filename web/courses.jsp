@@ -239,8 +239,6 @@
                     <c:forEach items="${all_courses}" var="course">
                         <h5><c:out value="${course.code}" /> - <c:out value="${course.name}" /></h5>
                     </c:forEach>
-
-                </h4>
             </div>
         </div>
     </div>

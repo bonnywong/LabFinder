@@ -5,6 +5,7 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>Models.UserEntity</class>
         <class>Models.CourseEntity</class>
+        <class>Models.EnrollEntity</class>
         <properties>
             <property name="eclipselink.jdbc.url" value="jdbc:mysql://c151.lithium.hosting:3306/fypniqhc_intnet16"/>
             <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>

@@ -39,16 +39,7 @@ public class CoursesServlet extends HttpServlet {
         }
 
 
-        //Here we attach the list of all courses to be returned to the jsp
-        List<CourseEntity> arrayList = new JPAStore().fetchAllCourses();
-        CourseEntity[] courselist = new CourseEntity[arrayList.size()];
-
-        int i = 0;
-        for(CourseEntity c : arrayList){
-            courselist[i] = c;
-            i++;
-        }
-        request.setAttribute("all_courses", courselist);
+        attachAllCourses(request, response);
 
 
         try {
@@ -64,12 +55,17 @@ public class CoursesServlet extends HttpServlet {
         }
     }
 
-
-
-
-
-
-
+    private void attachAllCourses(HttpServletRequest request, HttpServletResponse response) {
+        //Here we attach the list of all courses to be returned to the jsp
+        List<CourseEntity> arrayList = new JPAStore().fetchAllCourses();
+        CourseEntity[] courselist = new CourseEntity[arrayList.size()];
+        int i = 0;
+        for(CourseEntity c : arrayList){
+            courselist[i] = c;
+            i++;
+        }
+        request.setAttribute("all_courses", courselist);
+    }
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {

@@ -1,6 +1,7 @@
 <%@ page import="Persist.JPAStore" %>
 <%@ page import="Models.UserEntity" %>
-<%@ page import="facebook4j.Facebook" %><%--
+<%@ page import="facebook4j.Facebook" %>
+<%@ page import="Models.CourseEntity" %><%--
   Created by IntelliJ IDEA.
   User: swebo_000
   Date: 2016-03-29
@@ -8,7 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <%
@@ -205,48 +206,95 @@
             </div>
 
             <div id="description">
-                <form action ="profile">
+                <form action ="profile" method="post">
                     <input type="hidden" name="profile_action" value="insertProfileUpdate">
 
                     <input type="hidden" name="user_name" value=${facebook.name}>
                     <input type="hidden" name="user_fb_id" value=${facebook.id}>
 
-                    Current Email: <%currentUser.getEmail();%>
-                    <input type="text" name="email">
+                    Current Email:
+                    <input type="text" name="email" value="<%=currentUser.getEmail()%>">
                     <br>
 
-                    Current School: <%currentUser.getSchool();%>
-                    <input type="text" name="school">
+                    Current School:
+                    <input type="text" name="school" value="<%=currentUser.getSchool()%>">
                     <br>
 
-                    Current Program: <%currentUser.getProgram();%>
-                    <input type="text" name="program">
+                    Current Program:
+                    <input type="text" name="program" value="<%=currentUser.getProgram()%>">
                     <br>
 
-                    Current Master: <%currentUser.getMaster();%>
-                    <input type="text" name="master">
+                    Current Master:
+                    <input type="text" name="master" value="<%=currentUser.getMaster()%>">
                     <br>
 
-                    Current Comment: <%currentUser.getComments();%>
-                    <input type="text" name="comments">
+                    Current Comment:
+                    <input type="text" name="comments" value="<%=currentUser.getComments()%>">
                     <br>
 
                     <input type="submit" value="Submit.">
 
                 </form>
+
+
+                <%
+                    CourseEntity[] all_courses = (CourseEntity[])request.getAttribute("all_courses");
+                    request.setAttribute("all_courses", all_courses);
+                %>
+
+
+                <h5>
+                    <form action ="settings" method="post">
+                    <input type="hidden" name="settings_action" value="enrollInCourse">
+                    <input type="hidden" name="user_id" value="<%=currentUser.getId()%>">
+                    Enroll in course:
+                    <select name="courses">
+                    <c:forEach items="${all_courses}" var="course">
+                        <option value="${course.course_id}">${course.code} - ${course.name}</option>
+                    </c:forEach>
+                    </select>
+
+                    <select name="ambition">
+                        <option value="1">1 - Will give all for 'A'</option>
+                        <option value="2">2 - I want at least a 'C'</option>
+                        <option value="3">3 - Anything higher than 'D'</option>
+                        <option value="4">4 - Minimal effort, happy with 'E'</option>
+                    </select>
+
+                    <input type="submit" value="Enroll">
+                </form>
+                </h5>
+
+
+                <h5>
+                    <form action ="settings" method="post">
+                    <input type="hidden" name="settings_action" value="unenrollInCourse">
+                    <input type="hidden" name="user_id" value="<%=currentUser.getId()%>">
+                    Unenroll in course:
+                    <select name="courses">
+                        <c:forEach items="${my_courses}" var="course">
+                            <option value="${course.course_id}">${course.code} - ${course.name}</option>
+                        </c:forEach>
+                    </select>
+
+                    <input type="submit" value="Unenroll">
+                </form>
+                </h5>
+
             </div>
         </div>
 
         <div id=wrapperright>
             <div id="course">
-                <h1>Courses i'm taking:</h1>
-                <h4>
-                    DD2390 Internetprogrammering<br>
-                    DD2448 Kryptografins grunder <br>
-                    DD2372 Automater och språk <br>
-                    DD2459 Programvarutillförlitlighet <br>
-                    DD2471 Moderna databassystem och databastillämpningar <br>
-                </h4>
+                <%
+                    CourseEntity[] my_courses = (CourseEntity[])request.getAttribute("my_courses");
+                    request.setAttribute("my_courses", my_courses);
+                %>
+
+                <h5>All courses I'm taking:</h5>
+                <c:forEach items="${my_courses}" var="course">
+                    <h5><c:out value="${course.code}" /> - <c:out value="${course.name}" /></h5>
+                </c:forEach>
             </div>
         </div>
     </div>
