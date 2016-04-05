@@ -21,6 +21,10 @@
         <servlet-class>SettingsServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>search</servlet-name>
+        <servlet-class>SearchServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>profile</servlet-name>
         <servlet-class>ProfileServlet</servlet-class>
     </servlet>
@@ -44,6 +48,10 @@
     <servlet-mapping>
         <servlet-name>settings</servlet-name>
         <url-pattern>/settings</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>search</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>courses</servlet-name>

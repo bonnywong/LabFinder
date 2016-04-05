@@ -182,7 +182,7 @@
 <center>
     <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#search">Search partner</a></li>
+        <li><a href="search">Search partner</a></li>
         <li><a href="settings">Settings</a></li>
         <li><a href="profile">Profile</a></li>
 

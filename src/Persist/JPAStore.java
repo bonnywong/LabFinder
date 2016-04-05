@@ -1,5 +1,6 @@
 package Persist;
 
+import Models.AmbitionEntity;
 import Models.CourseEntity;
 import Models.EnrollEntity;
 import Models.UserEntity;
@@ -74,6 +75,18 @@ public class JPAStore {
     }
 
     /**
+     * Fetch users with name
+     * @param id
+     * @return List of UserEntities with provided name
+     */
+    public UserEntity fetchUser(int id) {
+        Query query = em.createQuery("select u from UserEntity u where u.id = :id");
+        query.setParameter("id", id);
+        return (UserEntity) query.getSingleResult();
+    }
+
+
+    /**
      * Fetch all users in database.
      * @return List of all UserEntities in database.
      */
@@ -125,6 +138,12 @@ public class JPAStore {
         return query.getResultList();
     }
 
+    public List<EnrollEntity> fetchAllEnrollsByCourse(int course_id) {
+        Query query = em.createQuery("select u from EnrollEntity u where u.course_id = :course_id");
+        query.setParameter("course_id", course_id);
+        return query.getResultList();
+    }
+
     public void removeEnroll(EnrollEntity enrollment) {
         EnrollEntity enroll = null;
 
@@ -135,16 +154,74 @@ public class JPAStore {
             }
         }
 
-
         if(enroll != null){
             em.getTransaction().begin();
             em.remove(enroll);
             em.getTransaction().commit();
         }
+    }
 
 
+
+
+
+
+
+
+
+    public UserEntity[] getUsersWithCourse(String course_id){
+        List<EnrollEntity> enrolls0 = fetchAllEnrollsByCourse(Integer.parseInt(course_id));
+        ArrayList<UserEntity> users = new ArrayList<UserEntity>();
+
+        for(EnrollEntity ee : enrolls0){
+            boolean userAlreadyAdded = false;
+            for(UserEntity uu : users){
+                if(ee.getUser_id() == uu.getId()){
+                    userAlreadyAdded = true;
+                }
+            }
+            if(userAlreadyAdded == false){
+                UserEntity newUser = fetchUser(ee.getUser_id());
+                String id = Integer.toString(ee.getAmbition());
+                String ambition = fetchAmbition(id).getDescription();
+                newUser.setAmbition(ambition);
+                users.add(newUser);
+            }
+        }
+        UserEntity[] userArray = new UserEntity[users.size()];
+        return users.toArray(userArray);
+    }
+
+
+
+
+
+
+
+
+
+    /**
+     * Fetch users with name
+     * @param idr
+     * @return List of UserEntities with provided name
+     */
+    public AmbitionEntity fetchAmbition(String idr) {
+        try{
+            Query query = em.createQuery("select u from AmbitionEntity u where u.id = :id");
+            query.setParameter("id", Integer.parseInt(idr));
+            return (AmbitionEntity) query.getSingleResult();
+        }catch(javax.persistence.NoResultException e){
+            AmbitionEntity dummy = new AmbitionEntity();
+            dummy.setDescription("OVER9000!!!");
+            return dummy;
+        }
 
     }
+
+
+
+
+
 }
 
 

@@ -16,6 +16,7 @@ public class UserEntity {
     private String master;
     private String comments;
     private String school;
+    private String ambition;   //used only in special cases
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -89,6 +90,14 @@ public class UserEntity {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
+    @Basic
+    @Column(name = "ambition")
+    public String getAmbition() {return ambition; }
+    public void setAmbition(String ambition) { this.ambition = ambition; }
+
+
+
 
     @Override
     public boolean equals(Object o) {
