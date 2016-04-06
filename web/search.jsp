@@ -66,6 +66,26 @@
             text-align: left;
         }
 
+        #searchpartleft{
+            background-color:#11ee11;
+            width:450px;
+            height: 250px;
+            float:left;
+            padding:10px;
+            margin: 0 20px 20px 20px;
+            text-align: left;
+        }
+
+        #searchpartright{
+            background-color:#11aa11;
+            width:450px;
+            height: 250px;
+            float:right;
+            padding:10px;
+            margin: 0 20px 20px 20px;
+            text-align: left;
+        }
+
         #resultpart{
             background-color:#eeeeee;
             width:940px;
@@ -189,6 +209,7 @@
             <h1> Search for a labpartner! </h1>
         </div>
         <div id="searchpart">
+            <div id="searchpartleft">
             <%
                 CourseEntity[] all_courses = (CourseEntity[])request.getAttribute("all_courses");
                 request.setAttribute("all_courses", all_courses);
@@ -230,7 +251,45 @@
                 <input type="submit" value="Find">
             </form>
 
+            </div>
+            <div id="searchpartright">
+                <%
+                    UserEntity[] course_users = (UserEntity[])request.getAttribute("course_users");
+                    request.setAttribute("course_users", course_users);
+                    CourseEntity current_course = (CourseEntity) request.getAttribute("current_course");
+                    request.setAttribute("current_course", current_course);
+                %>
 
+                Course: ${current_course.code} - ${current_course.name}
+                <table id="t01">
+                    <tr>
+                        <th>Name</th>
+                        <th>School</th>
+                        <th>Program</th>
+                        <th>Ambition</th>
+                        <th>Settings</th>
+                    </tr>
+                    <c:forEach items="${course_users}" var="user">
+                        <tr>
+                            <td>${user.name}</td>
+                            <td>${user.school}</td>
+                            <td>${user.program}</td>
+                            <td>${user.ambition}</td>
+                            <td>
+
+
+                                <form action ="search" method="post">
+                                    <input type="hidden" name="propose" value="yes">
+                                    <input type="hidden" name="proposed_user_id" value="${user.id}">
+                                    <input type="hidden" name="course_id" value="${current_course.course_id}">
+                                    <input type="submit" value="Propose">
+                                </form>
+                            </td>
+                        </tr>
+                    </c:forEach>
+
+                </table>
+            </div>
         </div>
         <div id="resultpart">
             <h2>Result </h2>

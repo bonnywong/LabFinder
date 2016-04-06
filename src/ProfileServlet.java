@@ -25,7 +25,7 @@ public class ProfileServlet extends HttpServlet {
         System.out.println("Profile Servlet was run!");
         String message = "null";
 
-        attachMyCourses(request, response);
+        ServlAux.attachMyCourses(request, response);
 
         try {
             RequestDispatcher rd = request.getRequestDispatcher("profile.jsp?message=" + "Debug: " + message);
@@ -75,7 +75,7 @@ public class ProfileServlet extends HttpServlet {
 
 
 
-        attachMyCourses(request, response);
+        ServlAux.attachMyCourses(request, response);
 
         try {
             RequestDispatcher rd = request.getRequestDispatcher("profile.jsp?message=" + "Debug: " + message);
@@ -92,42 +92,7 @@ public class ProfileServlet extends HttpServlet {
 
 
 
-    private void attachMyCourses(HttpServletRequest request, HttpServletResponse response) {
-        request.setAttribute("my_courses", getUserEnrolledCourses(request, response));
-    }
 
-
-    private CourseEntity[] getUserEnrolledCourses(HttpServletRequest request, HttpServletResponse response){
-        try {
-            JPAStore db = new JPAStore();
-            Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
-            UserEntity currentUser = null;
-            currentUser = (UserEntity) db.fetchUser(Long.parseLong(facebook.getId()));
-            int user_id = currentUser.getId();
-            List<EnrollEntity> enrolls = new JPAStore().fetchAllEnrolls( user_id);
-            List<CourseEntity> courses = new JPAStore().fetchAllCourses();
-            ArrayList<CourseEntity> enrolledCourses = new ArrayList<CourseEntity>();
-
-            CourseEntity[] courselist = new CourseEntity[enrolls.size()];
-            int i = 0;
-            for(EnrollEntity e : enrolls){
-                for(CourseEntity c : courses){
-                    if(e.getCourse_id() == c.getCourse_id()){
-                        enrolledCourses.add(c);
-                        break;
-                    }
-                }
-            }
-            return enrolledCourses.toArray(courselist);
-
-        } catch (FacebookException e) {
-            e.printStackTrace();
-        }
-        CourseEntity dummy = new CourseEntity();
-        dummy.setCode("FAILCOURSE");
-
-        return new CourseEntity[]{dummy};
-    }
 
 
 
