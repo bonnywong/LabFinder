@@ -1,9 +1,6 @@
 package Persist;
 
-import Models.AmbitionEntity;
-import Models.CourseEntity;
-import Models.EnrollEntity;
-import Models.UserEntity;
+import Models.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -219,9 +216,23 @@ public class JPAStore {
     }
 
 
+    public void persistProposal(String proposed_user_id, String proposer_user_id, String course_id) {
+        ProposalEntity pe = new ProposalEntity();
+        pe.setCourse_id(Integer.parseInt(course_id));
+        pe.setProposed_id(Integer.parseInt(proposed_user_id));
+        pe.setProposer_id(Integer.parseInt(proposer_user_id));
+        try {
+            em.getTransaction().begin();
+            em.persist(pe);
+            em.getTransaction().commit();
+            System.out.println(proposer_user_id + " PROPOSED TO " + proposed_user_id + " IN COURSE " + course_id);
+        } catch (Exception e) {
+            System.out.println("Entity already exists.");
+        }
 
 
 
+    }
 }
 
 

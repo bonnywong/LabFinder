@@ -24,6 +24,36 @@ public class SearchServlet extends HttpServlet {
         String settings_action = request.getParameter("settings_action");
         String message = "null";
 
+        String propose = request.getParameter("propose");
+        if(propose != null && propose.equals("yes")){
+            String proposed_user_id = request.getParameter("proposed_user_id");
+            String proposer_user_id = "";
+            String course_id = request.getParameter("course_id");
+            try {
+                JPAStore db = new JPAStore();
+                Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
+                UserEntity currentUser = (UserEntity) db.fetchUser(Long.parseLong(facebook.getId()));
+                proposer_user_id = Integer.toString(currentUser.getId());
+                db.persistProposal(proposed_user_id, proposer_user_id, course_id);
+            } catch (FacebookException e) {
+                e.printStackTrace();
+            }
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
 
         if (settings_action != null && settings_action.equals("enrollInCourse")) {
 

@@ -16,6 +16,7 @@
     JPAStore db = new JPAStore();
     Facebook facebook = (Facebook) session.getAttribute("facebook");
     UserEntity currentUser = (UserEntity) db.fetchUser(Long.parseLong(facebook.getId()));
+    request.setAttribute("currentUser_id", currentUser.getId());
     String facebookId = facebook.getId();
     String profile_img = new String("http://graph.facebook.com/" + facebookId + "/picture");
     //String profile_img = new String("http://graph.facebook.com/" + facebookId + "/picture?type=square");
@@ -262,14 +263,13 @@
                         <td>${user.program}</td>
                         <td>${user.ambition}</td>
                         <td>
-                            <form action ="search" method="get">
+
+
+                            <form action ="search" method="post">
+                                <input type="hidden" name="propose" value="yes">
+                                <input type="hidden" name="proposed_user_id" value="${user.id}">
+                                <input type="hidden" name="course_id" value="${current_course.course_id}">
                                 <input type="submit" value="Propose">
-                            </form>
-                            <form action ="search" method="get">
-                                <input type="submit" value="Retract">
-                            </form>
-                            <form action ="search" method="get">
-                                <input type="submit" value="Accept">
                             </form>
                         </td>
                     </tr>
