@@ -71,23 +71,23 @@
                         </c:forEach>
                     </select><br>
                     <text>Select ambition:</text><br>
-                    <select>
-                        <option selected>Search for all</option>
-                        <option value="A">AAAAAAAAAA!!!!!</option>
-                        <option value="B">Prepared to work for a good grade.</option>
-                        <option value="C">C sounds fine to me</option>
-                        <option value="D">Maybe something above E at least</option>
-                        <option value="E">Minimal effort, just want to pass</option>
+                    <select name="grade">
+                        <option selected value="all">Search for all</option>
+                        <option value="1">AAAAAAAAAA!!!!!</option>
+                        <option value="2">Prepared to work for a good grade.</option>
+                        <option value="3">C sounds fine to me</option>
+                        <option value="4">Maybe something above E at least</option>
+                        <option value="5">Minimal effort, just want to pass</option>
                     </select><br>
                     <text>Select school:</text><br>
-                    <select>
-                        <option selected>Search for all</option>
+                    <select name="school">
+                        <option selected value="all">Search for all</option>
                         <option value="A">KTH</option>
                         <option value="B">SU</option>
                     </select><br>
                     <text>Select program:</text><br>
-                    <select>
-                        <option selected>Search for all</option>
+                    <select name="program">
+                        <option selected value="all">Search for all</option>
                         <option value="A">Information technology</option>
                         <option value="B">Computer science</option>
                         <option value="C">Media technology</option>
@@ -97,10 +97,6 @@
 
             </div>
             <div id="searchpartright"><!-- HERE WE ARE INSERTING THE LIST OF ALL AVAILABLE PROPOSALS WE WISH TO RETRACT AND ACCEPT-->
-
-
-
-
                 Course: ${current_course.code} - ${current_course.name}
                 <table id="t01">
                     <tr>

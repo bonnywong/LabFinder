@@ -129,12 +129,19 @@ public class JPAStore {
         }
     }
 
+
+
     public List<EnrollEntity> fetchAllEnrolls(int user_id) {
         Query query = em.createQuery("select u from EnrollEntity u where u.user_id = :user_id");
         query.setParameter("user_id", user_id);
         return query.getResultList();
     }
 
+    /**
+     * Retrieves a list of EnrollEntity objects based on course id.
+     * @param course_id
+     * @return
+     */
     public List<EnrollEntity> fetchAllEnrollsByCourse(int course_id) {
         Query query = em.createQuery("select u from EnrollEntity u where u.course_id = :course_id");
         query.setParameter("course_id", course_id);
