@@ -123,7 +123,8 @@ public class SettingsServlet extends HttpServlet {
 
     private boolean courseIsEnrolled(EnrollEntity c, HttpServletRequest request, HttpServletResponse response){
         CourseEntity[] courses = getUserEnrolledCourses(request, response);
-        if(courses[0].getCode().equals("FAILCOURSE")){
+
+        if(courses == null || courses.length == 0 || courses[0].getCode().equals("FAILCOURSE")){
             return false;
         }
         else{
