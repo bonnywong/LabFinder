@@ -7,6 +7,8 @@
         <class>Models.CourseEntity</class>
         <class>Models.EnrollEntity</class>
         <class>Models.AmbitionEntity</class>
+        <class>Models.ProposalEntity</class>
+        <class>Models.LabTeamEntity</class>
         <properties>
             <property name="eclipselink.jdbc.url" value="jdbc:mysql://c151.lithium.hosting:3306/fypniqhc_intnet16"/>
             <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
