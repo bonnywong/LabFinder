@@ -37,6 +37,26 @@ table#t01 th {
     text-align: left;
 }
 
+#searchpartleft{
+    background-color:#ee11ee;
+    width:410px;
+    height: 210px;
+    float:left;
+    padding:10px;
+    margin: 0 20px 20px 20px;
+    text-align: left;
+}
+
+#searchpartright{
+    background-color:#11ee11;
+    width:410px;
+    height: 210px;
+    float:right;
+    padding:10px;
+    margin: 0 20px 20px 20px;
+    text-align: left;
+}
+
 #resultpart{
     background-color:#eeeeee;
     width:940px;
