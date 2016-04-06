@@ -117,16 +117,9 @@ public class SettingsServlet extends HttpServlet {
         request.setAttribute("all_courses", courselist);
     }
 
-
-
-
     private void attachMyCourses(HttpServletRequest request, HttpServletResponse response) {
         request.setAttribute("my_courses", getUserEnrolledCourses(request, response));
     }
-
-
-
-
 
     private boolean courseIsEnrolled(EnrollEntity c, HttpServletRequest request, HttpServletResponse response){
         CourseEntity[] courses = getUserEnrolledCourses(request, response);

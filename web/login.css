@@ -11,20 +11,20 @@ h1 { color: #ffffff;
 	line-height: 72px; 
 	margin: 0 0 24px; 
 	text-align: center; 
-	text-transform: 
+	/*text-transform: ;*/
 }
 
 h2 { color: #ffffff; 
 	font-family: 'Raleway',sans-serif; 
 	font-size: 24px; 
-	font-weight: 10; 
+	/*font-weight: 10;*/
 	margin: 0 0 0 0px;
 	}
 
 h3 { color: #ffffff; 
 	font-family: 'Raleway',sans-serif; 
-	font-size: 12px; 
-	font-weight: 10; 
+	font-size: 12px;
+    /*font-weight: 10;*/
 	margin: 0 0 0 0px;
 	}
 	
