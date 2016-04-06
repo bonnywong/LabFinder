@@ -1,8 +1,7 @@
 <%@ page import="Persist.JPAStore" %>
 <%@ page import="Models.UserEntity" %>
 <%@ page import="facebook4j.Facebook" %>
-<%@ page import="Models.CourseEntity" %>
-<%@ page import="Models.ProposalEntity" %><%--
+<%@ page import="Models.CourseEntity" %><%--
   Created by IntelliJ IDEA.
   User: swebo_000
   Date: 2016-03-29
@@ -22,181 +21,12 @@
     String profile_img = new String("http://graph.facebook.com/" + facebookId + "/picture");
     //String profile_img = new String("http://graph.facebook.com/" + facebookId + "/picture?type=square");
     String primg = "https://scontent.xx.fbcdn.net/hprofile-xta1/v/t1.0-1/p50x50/11046478_10152321835823078_2224262110139808625_n.jpg?oh=6602521d12b107d4906eb79495c21e5a&oe=578C303F";
-
-    UserEntity[] course_users = (UserEntity[])request.getAttribute("course_users");
-    request.setAttribute("course_users", course_users);
-    CourseEntity current_course = (CourseEntity) request.getAttribute("current_course");
-    request.setAttribute("current_course", current_course);
-
-    ProposalEntity[] received_proposals = (ProposalEntity[]) request.getAttribute("received_proposals");
-    ProposalEntity[] sent_proposals = (ProposalEntity[]) request.getAttribute("sent_proposals");
 %>
 
+
+
 <head>
-    <style>
-        table#t01 tr:nth-child(even) {
-            background-color: #94EAB4;
-        }
-        table#t01 tr:nth-child(odd) {
-            background-color: #D9FFD7;
-        }
-        table#t01 th {
-            color: black;
-            background-color: #40AE89;
-        }
-        #wrapper{
-            line-height:30px;
-            background-color: #199E72;
-            height:1170px;
-            width:1000px;
-            float:center;
-            border-radius: 10px 10px 10px 10px;
-        }
-
-        #searchtextpart{
-            background-color:#eeeeee;
-            width:940px;
-            height: 90px;
-            float:left;
-            padding:10px;
-            margin:20px 20px 20px 20px;
-            text-align: left;
-        }
-
-        #searchpart{
-            background-color:#eeeeee;
-            width:940px;
-            height: 250px;
-            float:left;
-            padding:10px;
-            margin: 0 20px 20px 20px;
-            text-align: left;
-        }
-
-        #searchpartleft{
-            background-color:#ee11ee;
-            width:410px;
-            height: 210px;
-            float:left;
-            padding:10px;
-            margin: 0 20px 20px 20px;
-            text-align: left;
-        }
-
-        #searchpartright{
-            background-color:#11ee11;
-            width:410px;
-            height: 210px;
-            float:right;
-            padding:10px;
-            margin: 0 20px 20px 20px;
-            text-align: left;
-        }
-
-        #resultpart{
-            background-color:#eeeeee;
-            width:940px;
-            height: 690px;
-            float:left;
-            padding:10px;
-            margin: 0 20px 20px 20px;
-            text-align: left;
-        }
-
-        #hit{
-            background-color:white;
-            width:880px;
-            height: 100px;
-            float:left;
-            padding:10px;
-            margin: 0px 20px 20px 20px;
-            text-align: left;
-        }
-        #requestbuttonpart{
-            /*background-color:lightblue;*/
-            width:50px;
-            height: 50px;
-            float:right;
-            margin: 20px 20px 20px 0px;
-        }
-
-        h1 {
-            color: #1b201e;
-            font-family: 'Raleway',sans-serif;
-            font-size: 62px;
-            font-weight: 800;
-            line-height: 72px;
-            margin: 0 20px 24px ;
-            text-align: left;
-        }
-        h2 {
-            color: #1b201e;
-            font-family: 'Raleway',sans-serif;
-            font-size: 30px;
-            font-weight: 800;
-            line-height: 72px;
-            margin: 0 20px 24px ;
-            text-align: left;
-        }
-
-        h3 {
-            color: #1b201e;
-            font-family: 'Raleway',sans-serif;
-            font-size: 20px;
-            margin: 0px 0 -30px 0;
-        }
-
-        h4 {
-            color: #1b201e;
-            font-family: 'Raleway',sans-serif;
-            font-size: 12px;
-            font-weight: 10;
-            margin: 0 0px 0px 10px;
-        }
-
-        text {
-            text-align: left;
-            font-family: 'Raleway',sans-serif;
-            font-size: 15px;
-            font-weight: 10;
-            margin: 0 0 0 0px;
-        }
-
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            width: 1000px;
-            margin:20px 20px 20px 20px;
-        }
-
-        li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-
-        }
-
-        li a:hover:not(.active) {
-            background-color: #111;
-        }
-
-        .active {
-            background-color: #4CAF50;
-        }
-
-        body{
-            background-color: #87dfc2;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="settings.css">
     <title>Searchsite</title>
 </head>
 <body>
@@ -216,7 +46,6 @@
             <h1> Search for a labpartner! </h1>
         </div>
         <div id="searchpart">
-            <div id="searchpartleft">
             <%
                 CourseEntity[] all_courses = (CourseEntity[])request.getAttribute("all_courses");
                 request.setAttribute("all_courses", all_courses);
@@ -258,41 +87,7 @@
                 <input type="submit" value="Find">
             </form>
 
-            </div>
-            <div id="searchpartright"><!-- HERE WE ARE INSERTING THE LIST OF ALL AVAILABLE PROPOSALS WE WISH TO RETRACT AND ACCEPT-->
 
-
-
-
-                Course: ${current_course.code} - ${current_course.name}
-                <table id="t01">
-                    <tr>
-                        <th>Name</th>
-                        <th>Course</th>
-                        <th>Ambition</th>
-                        <th>Settings</th>
-                    </tr>
-                    <c:forEach items="${course_users}" var="user">
-                        <tr>
-                            <td>${user.name}</td>
-                            <td>${user.school}</td>
-                            <td>${user.program}</td>
-                            <td>${user.ambition}</td>
-                            <td>
-
-
-                                <form action ="search" method="post">
-                                    <input type="hidden" name="propose" value="yes">
-                                    <input type="hidden" name="proposed_user_id" value="${user.id}">
-                                    <input type="hidden" name="course_id" value="${current_course.course_id}">
-                                    <input type="submit" value="Propose">
-                                </form>
-                            </td>
-                        </tr>
-                    </c:forEach>
-
-                </table>
-            </div>
         </div>
         <div id="resultpart">
             <h2>Result </h2>
@@ -303,7 +98,10 @@
 
             </select>
             <%
-
+                UserEntity[] course_users = (UserEntity[])request.getAttribute("course_users");
+                request.setAttribute("course_users", course_users);
+                CourseEntity current_course = (CourseEntity) request.getAttribute("current_course");
+                request.setAttribute("current_course", current_course);
             %>
 
             Course: ${current_course.code} - ${current_course.name}

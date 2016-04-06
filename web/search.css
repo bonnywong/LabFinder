@@ -1,0 +1,142 @@
+table#t01 tr:nth-child(even) {
+    background-color: #94EAB4;
+}
+table#t01 tr:nth-child(odd) {
+    background-color: #D9FFD7;
+}
+table#t01 th {
+    color: black;
+    background-color: #40AE89;
+}
+#wrapper{
+    line-height:30px;
+    background-color: #199E72;
+    height:1170px;
+    width:1000px;
+    float:center;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#searchtextpart{
+    background-color:#eeeeee;
+    width:940px;
+    height: 90px;
+    float:left;
+    padding:10px;
+    margin:20px 20px 20px 20px;
+    text-align: left;
+}
+
+#searchpart{
+    background-color:#eeeeee;
+    width:940px;
+    height: 250px;
+    float:left;
+    padding:10px;
+    margin: 0 20px 20px 20px;
+    text-align: left;
+}
+
+#resultpart{
+    background-color:#eeeeee;
+    width:940px;
+    height: 690px;
+    float:left;
+    padding:10px;
+    margin: 0 20px 20px 20px;
+    text-align: left;
+}
+
+#hit{
+    background-color:white;
+    width:880px;
+    height: 100px;
+    float:left;
+    padding:10px;
+    margin: 0px 20px 20px 20px;
+    text-align: left;
+}
+#requestbuttonpart{
+    /*background-color:lightblue;*/
+    width:50px;
+    height: 50px;
+    float:right;
+    margin: 20px 20px 20px 0px;
+}
+
+h1 {
+    color: #1b201e;
+    font-family: 'Raleway',sans-serif;
+    font-size: 62px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 0 20px 24px ;
+    text-align: left;
+}
+h2 {
+    color: #1b201e;
+    font-family: 'Raleway',sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 0 20px 24px ;
+    text-align: left;
+}
+
+h3 {
+    color: #1b201e;
+    font-family: 'Raleway',sans-serif;
+    font-size: 20px;
+    margin: 0px 0 -30px 0;
+}
+
+h4 {
+    color: #1b201e;
+    font-family: 'Raleway',sans-serif;
+    font-size: 12px;
+    font-weight: 10;
+    margin: 0 0px 0px 10px;
+}
+
+text {
+    text-align: left;
+    font-family: 'Raleway',sans-serif;
+    font-size: 15px;
+    font-weight: 10;
+    margin: 0 0 0 0px;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 1000px;
+    margin:20px 20px 20px 20px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+body{
+    background-color: #87dfc2;
+}

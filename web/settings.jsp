@@ -109,9 +109,10 @@
 
                     <select name="ambition">
                         <option value="1">1 - Will give all for 'A'</option>
-                        <option value="2">2 - I want at least a 'C'</option>
-                        <option value="3">3 - Anything higher than 'D'</option>
-                        <option value="4">4 - Minimal effort, happy with 'E'</option>
+                        <option value="2">2 - Prepared to work for a 'B'</option>
+                        <option value="3">3 - I want at least a 'C'</option>
+                        <option value="4">4 - Anything higher than 'D'</option>
+                        <option value="5">5 - Minimal effort, happy with 'E'</option>
                     </select>
 
                     <input type="submit" value="Enroll">
