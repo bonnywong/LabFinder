@@ -1,7 +1,8 @@
 <%@ page import="Persist.JPAStore" %>
 <%@ page import="Models.UserEntity" %>
 <%@ page import="facebook4j.Facebook" %>
-<%@ page import="Models.CourseEntity" %><%--
+<%@ page import="Models.CourseEntity" %>
+<%@ page import="Models.ProposalEntity" %><%--
   Created by IntelliJ IDEA.
   User: swebo_000
   Date: 2016-03-29
@@ -21,9 +22,15 @@
     String profile_img = new String("http://graph.facebook.com/" + facebookId + "/picture");
     //String profile_img = new String("http://graph.facebook.com/" + facebookId + "/picture?type=square");
     String primg = "https://scontent.xx.fbcdn.net/hprofile-xta1/v/t1.0-1/p50x50/11046478_10152321835823078_2224262110139808625_n.jpg?oh=6602521d12b107d4906eb79495c21e5a&oe=578C303F";
+
+    UserEntity[] course_users = (UserEntity[])request.getAttribute("course_users");
+    request.setAttribute("course_users", course_users);
+    CourseEntity current_course = (CourseEntity) request.getAttribute("current_course");
+    request.setAttribute("current_course", current_course);
+
+    ProposalEntity[] received_proposals = (ProposalEntity[]) request.getAttribute("received_proposals");
+    ProposalEntity[] sent_proposals = (ProposalEntity[]) request.getAttribute("sent_proposals");
 %>
-
-
 
 <head>
     <style>
@@ -67,9 +74,9 @@
         }
 
         #searchpartleft{
-            background-color:#11ee11;
-            width:450px;
-            height: 250px;
+            background-color:#ee11ee;
+            width:410px;
+            height: 210px;
             float:left;
             padding:10px;
             margin: 0 20px 20px 20px;
@@ -77,9 +84,9 @@
         }
 
         #searchpartright{
-            background-color:#11aa11;
-            width:450px;
-            height: 250px;
+            background-color:#11ee11;
+            width:410px;
+            height: 210px;
             float:right;
             padding:10px;
             margin: 0 20px 20px 20px;
@@ -252,20 +259,16 @@
             </form>
 
             </div>
-            <div id="searchpartright">
-                <%
-                    UserEntity[] course_users = (UserEntity[])request.getAttribute("course_users");
-                    request.setAttribute("course_users", course_users);
-                    CourseEntity current_course = (CourseEntity) request.getAttribute("current_course");
-                    request.setAttribute("current_course", current_course);
-                %>
+            <div id="searchpartright"><!-- HERE WE ARE INSERTING THE LIST OF ALL AVAILABLE PROPOSALS WE WISH TO RETRACT AND ACCEPT-->
+
+
+
 
                 Course: ${current_course.code} - ${current_course.name}
                 <table id="t01">
                     <tr>
                         <th>Name</th>
-                        <th>School</th>
-                        <th>Program</th>
+                        <th>Course</th>
                         <th>Ambition</th>
                         <th>Settings</th>
                     </tr>
@@ -300,10 +303,7 @@
 
             </select>
             <%
-                UserEntity[] course_users = (UserEntity[])request.getAttribute("course_users");
-                request.setAttribute("course_users", course_users);
-                CourseEntity current_course = (CourseEntity) request.getAttribute("current_course");
-                request.setAttribute("current_course", current_course);
+
             %>
 
             Course: ${current_course.code} - ${current_course.name}

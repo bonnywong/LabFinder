@@ -79,4 +79,19 @@ public class ServlAux {
     }
 
 
+    public static int getUserId(HttpServletRequest request, HttpServletResponse response){
+
+        try {
+            JPAStore db = new JPAStore();
+            Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
+            UserEntity currentUser = null;
+            currentUser = (UserEntity) db.fetchUser(Long.parseLong(facebook.getId()));
+            int user_id = currentUser.getId();
+            return user_id;
+        } catch (FacebookException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
 }

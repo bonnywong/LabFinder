@@ -12,6 +12,8 @@ public class ProposalEntity {
     private int proposer_id;
     private int proposed_id;
     private int course_id;
+    private String course_tag;
+    private String ambition;
 
 
 
@@ -55,7 +57,24 @@ public class ProposalEntity {
     }
 
 
+    @Basic
+    @Column(name = "course_tag")
+    public String getCourse_tag() {
+        return course_tag;
+    }
+    public void setCourse_tag(String course_tag) {
+        this.course_tag = course_tag;
+    }
 
+
+    @Basic
+    @Column(name = "ambition")
+    public String getAmbition() {
+        return ambition;
+    }
+    public void setAmbition(String ambition) {
+        this.ambition = ambition;
+    }
 
 
     @Override

@@ -6,12 +6,14 @@ import Persist.JPAStore;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 
+import javax.persistence.Query;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 
 /**
@@ -39,8 +41,10 @@ public class SearchServlet extends HttpServlet {
             }
         }
 
+        //POST PROCESSING, EVERYTHING UNCONDITIONAL TO BE DONE IN PREPARATION OF THE SEARCH VIEW
         ServlAux.attachMyCourses(request, response);
         ServlAux.attachAllCourses(request, response);
+        attachUserProposals(request, response);
 
         try {
             RequestDispatcher rd =
@@ -84,6 +88,7 @@ public class SearchServlet extends HttpServlet {
 
         ServlAux.attachMyCourses(request, response);
         ServlAux.attachAllCourses(request, response);
+        attachUserProposals(request, response);
 
         try {
             RequestDispatcher rd =
@@ -99,21 +104,18 @@ public class SearchServlet extends HttpServlet {
     }
 
 
+    /**
+     * Get all proposals that include us as a user
+     * @return
+     */
+    private ProposalEntity[] attachUserProposals(HttpServletRequest request, HttpServletResponse response){
+        JPAStore db = new JPAStore();
 
 
+        request.setAttribute("received_proposals", db.fetchAllReceivedProposals(ServlAux.getUserId(request, response)));
+        request.setAttribute("sent_proposals", db.fetchAllSentProposals(ServlAux.getUserId(request, response)));
 
 
-
-
-
-
-
-
-
-
-
-
-    private ProposalEntity[] getUserProposals(){
         return null;
     }
 
@@ -121,3 +123,9 @@ public class SearchServlet extends HttpServlet {
 
 
 }
+
+
+
+
+
+
