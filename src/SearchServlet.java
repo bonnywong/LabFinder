@@ -96,7 +96,7 @@ public class SearchServlet extends HttpServlet {
 
         try {
             RequestDispatcher rd =
-                    request.getRequestDispatcher("settings.jsp?message=" + "Debug: " + message);
+                    request.getRequestDispatcher("search.jsp?message=" + "Debug: " + message);
             rd.forward(request, response);
         }
         catch(ServletException e){

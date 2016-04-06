@@ -221,6 +221,14 @@ public class JPAStore {
         pe.setCourse_id(Integer.parseInt(course_id));
         pe.setProposed_id(Integer.parseInt(proposed_user_id));
         pe.setProposer_id(Integer.parseInt(proposer_user_id));
+
+        List<ProposalEntity> proposals = fetchAllProposals(Integer.parseInt(proposer_user_id));
+        for(ProposalEntity p : proposals){
+            if(pe.getCourse_id() == p.getCourse_id() && pe.getProposed_id() == p.getProposed_id() && pe.getProposer_id() == p.getProposer_id()){
+                return;
+            }
+        }
+
         try {
             em.getTransaction().begin();
             em.persist(pe);
@@ -229,10 +237,18 @@ public class JPAStore {
         } catch (Exception e) {
             System.out.println("Entity already exists.");
         }
-
-
-
     }
+
+
+
+
+    public List<ProposalEntity> fetchAllProposals(int proposer_id) {
+        Query query = em.createQuery("select u from ProposalEntity u where u.proposer_id = :proposer_id");
+        query.setParameter("proposer_id", proposer_id);
+        return query.getResultList();
+    }
+
+
 }
 
 
