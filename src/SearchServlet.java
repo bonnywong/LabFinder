@@ -170,15 +170,18 @@ public class SearchServlet extends HttpServlet {
      * Get all proposals that include us as a user
      * @return
      */
-    private ProposalEntity[] attachUserProposals(HttpServletRequest request, HttpServletResponse response){
+    private void attachUserProposals(HttpServletRequest request, HttpServletResponse response){
         JPAStore db = new JPAStore();
 
+        List<ProposalEntity> rp = db.fetchAllReceivedProposals(ServlAux.getUserId(request, response));
+        List<ProposalEntity> sp = db.fetchAllSentProposals(ServlAux.getUserId(request, response));
+        ProposalEntity[] received_proposals = new ProposalEntity[rp.size()];
+        ProposalEntity[] sent_proposals = new ProposalEntity[sp.size()];
+        received_proposals = rp.toArray(received_proposals);
+        sent_proposals = sp.toArray(sent_proposals);
+        request.setAttribute("received_proposals", received_proposals);
+        request.setAttribute("sent_proposals", sent_proposals);
 
-        request.setAttribute("received_proposals", db.fetchAllReceivedProposals(ServlAux.getUserId(request, response)));
-        request.setAttribute("sent_proposals", db.fetchAllSentProposals(ServlAux.getUserId(request, response)));
-
-
-        return null;
     }
 
 

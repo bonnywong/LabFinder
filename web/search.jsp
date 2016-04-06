@@ -28,8 +28,8 @@
     CourseEntity current_course = (CourseEntity) request.getAttribute("current_course");
     request.setAttribute("current_course", current_course);
 
-    //ProposalEntity[] received_proposals = (ProposalEntity[]) request.getAttribute("received_proposals");
-    //ProposalEntity[] sent_proposals = (ProposalEntity[]) request.getAttribute("sent_proposals");
+    ProposalEntity[] received_proposals = (ProposalEntity[]) request.getAttribute("received_proposals");
+    ProposalEntity[] sent_proposals = (ProposalEntity[]) request.getAttribute("sent_proposals");
 %>
 
 <head>
