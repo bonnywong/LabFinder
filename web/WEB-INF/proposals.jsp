@@ -37,7 +37,7 @@
 %>
 <head>
     <link rel="stylesheet" type="text/css" href="proposals.css">
-    <title>Manage proposals</title>
+    <title>proposals</title>
 </head>
 <body>
     <center>
@@ -53,11 +53,15 @@
         </ul>
 
         <div id="wrapper">
-            <div id="proposaltome">
-
-            </div>
+            <h1> My proposals</h1>
             <div id="proposalfromme">
+                <h3> Sent</h3>
+                <div id="proposal">
 
+                </div>
+            </div>
+            <div id="proposaltome">
+                <h3> Received </h3></br>
             </div>
         </div>
     </center>
