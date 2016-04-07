@@ -1,0 +1,60 @@
+#wrapper{
+    line-height:30px;
+    background-color: #199E72;
+    height:1170px;
+    width:1000px;
+    float:center;
+    border-radius: 10px 10px 10px 10px;
+}
+#proposalfromme{
+    background-color:#eeeeee;
+    width:940px;
+    height: 500px;
+    float:left;
+    padding:10px;
+    margin: 0 20px 20px 20px;
+    text-align: left;
+}
+#proposaltome{
+    background-color:#eeeeee;
+    width:940px;
+    height: 500px;
+    float:left;
+    padding:10px;
+    margin: 0 20px 20px 20px;
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 1000px;
+    margin:20px 20px 20px 20px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+body {
+    background-color: #87dfc2;
+}

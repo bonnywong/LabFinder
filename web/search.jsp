@@ -49,6 +49,7 @@
         <li><a class="active">Search partner</a></li>
         <li><a href="settings">Settings</a> </li>
         <li><a href="profile">Profile</a></li>
+        <li><a href="proposals">My proposals</a></li>
         <li style="float:right"><a class="about" href="#about">About</a></li>
         <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
         <li style="float:right"><a class="logout" href="#logout">Logout</a></li>
