@@ -39,6 +39,7 @@ public class SearchServlet extends HttpServlet {
                 UserEntity currentUser = (UserEntity) db.fetchUser(Long.parseLong(facebook.getId()));
                 proposer_user_id = Integer.toString(currentUser.getId());
                 db.persistProposal(proposed_user_id, proposer_user_id, course_id);
+                System.out.println("\n\n\n\nUSER " + facebook.getName() + " CREATED A NEW PROPOSAL!\n\n\n\n");
             } catch (FacebookException e) {
                 e.printStackTrace();
             }

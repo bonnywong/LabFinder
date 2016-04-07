@@ -14,6 +14,8 @@ public class ProposalEntity {
     private int course_id;
     private String course_tag;
     private String ambition;
+    private String user_tag;
+    private String touser_tag;
 
 
 
@@ -54,6 +56,26 @@ public class ProposalEntity {
     }
     public void setCourse_id(int course_id) {
         this.course_id = course_id;
+    }
+
+
+    @Basic
+    @Column(name = "user_tag")
+    public String getUser_tag() {
+        return user_tag;
+    }
+    public void setUser_tag(String user_tag) {
+        this.user_tag = user_tag;
+    }
+
+
+    @Basic
+    @Column(name = "touser_tag")
+    public String getTouser_tag() {
+        return touser_tag;
+    }
+    public void setTouser_tag(String touser_tag) {
+        this.touser_tag = touser_tag;
     }
 
 

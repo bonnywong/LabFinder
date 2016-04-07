@@ -230,6 +230,7 @@ public class JPAStore {
         pe.setProposer_id(Integer.parseInt(proposer_user_id));
         addCourseTag(pe);
         addAmbitionTag(pe);
+        addUserTags(pe);
 
         List<ProposalEntity> proposals = fetchAllSentProposals(Integer.parseInt(proposer_user_id));
         for(ProposalEntity p : proposals){
@@ -250,16 +251,15 @@ public class JPAStore {
 
 
 
-
-    public List<ProposalEntity> fetchAllReceivedProposals(int proposer_id) {
-        Query query = em.createQuery("select u from ProposalEntity u where u.proposer_id = :proposer_id");
-        query.setParameter("proposer_id", proposer_id);
+    public List<ProposalEntity> fetchAllReceivedProposals(int proposed_id) {
+        Query query = em.createQuery("select u from ProposalEntity u where u.proposed_id = :proposed_id");
+        query.setParameter("proposed_id", proposed_id);
         return query.getResultList();
     }
 
     public List<ProposalEntity> fetchAllSentProposals(int proposer_id) {
-        Query query = em.createQuery("select u from ProposalEntity u where u.proposed_id = :proposed_id");
-        query.setParameter("proposed_id", proposer_id);
+        Query query = em.createQuery("select u from ProposalEntity u where u.proposer_id = :proposer_id");
+        query.setParameter("proposer_id", proposer_id);
         return query.getResultList();
     }
 
@@ -268,7 +268,7 @@ public class JPAStore {
         List<CourseEntity> courses = fetchAllCourses();
         for(CourseEntity c : courses){
             if(c.getCourse_id() == data.getCourse_id()){
-                data.setCourse_tag(c.getCode() + c.getName());
+                data.setCourse_tag(c.getCode() + " - " + c.getName());
                 break;
             }
         }
@@ -289,7 +289,6 @@ public class JPAStore {
         if(amb.getId() == ambition){
             data.setAmbition(amb.getDescription());
         }
-
     }
 
 
@@ -308,6 +307,14 @@ public class JPAStore {
             data.setAmbition(amb.getDescription());
         }
     }
+
+
+    private void addUserTags(ProposalEntity pe) {
+        pe.setUser_tag(fetchUser(pe.getProposer_id()).getName());
+        pe.setTouser_tag(fetchUser(pe.getProposed_id()).getName());
+    }
+
+
 }
 
 

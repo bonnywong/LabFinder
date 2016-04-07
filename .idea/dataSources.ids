@@ -127,42 +127,51 @@
         <data-type>int(11)</data-type>
       </column>
       <column id="36" parent="5" name="course_tag">
+        <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
+        <default-expression>&apos;-not specified-&apos;</default-expression>
       </column>
       <column id="37" parent="5" name="ambition">
+        <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
+        <default-expression>&apos;-not specified-&apos;</default-expression>
       </column>
-      <key id="38" parent="5" name="PRIMARY">
+      <column id="38" parent="5" name="user_tag">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;-not specified-&apos;</default-expression>
+      </column>
+      <key id="39" parent="5" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="39" parent="6" name="id">
+      <column id="40" parent="6" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="40" parent="6" name="description">
+      <column id="41" parent="6" name="description">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="41" parent="7" name="id">
+      <column id="42" parent="7" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="42" parent="7" name="user_a_id">
+      <column id="43" parent="7" name="user_a_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="43" parent="7" name="user_b_id">
+      <column id="44" parent="7" name="user_b_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="44" parent="7" name="course_id">
+      <column id="45" parent="7" name="course_id">
         <data-type>int(11)</data-type>
       </column>
-      <key id="45" parent="7" name="PRIMARY">
+      <key id="46" parent="7" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
