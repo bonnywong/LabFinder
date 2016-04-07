@@ -85,6 +85,7 @@ public class SearchServlet extends HttpServlet {
                 }
             }
 
+
             UserEntity[] users = filter(course_id, grade, school, program, user_id);
 
             request.setAttribute("course_users", users);
@@ -163,7 +164,12 @@ public class SearchServlet extends HttpServlet {
         filteredUsers.removeAll(tempUsers);
 
         UserEntity[] userArray = new UserEntity[filteredUsers.size()];
-        return filteredUsers.toArray(userArray);
+        userArray = filteredUsers.toArray(userArray);
+        for(int i = 0; i < userArray.length; i++){
+            db.addAmbitionTag(userArray[i], Integer.parseInt(course_id));
+        }
+
+        return userArray;
     }
 
     /**

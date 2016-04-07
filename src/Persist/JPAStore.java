@@ -285,14 +285,28 @@ public class JPAStore {
             }
         }
 
-        List<AmbitionEntity> ambitions = (List<AmbitionEntity>) fetchAmbition(Integer.toString(ambition));
-        for(AmbitionEntity a : ambitions){
-            if(a.getId() == ambition){
-                data.setAmbition(a.getDescription());
+        AmbitionEntity amb = (AmbitionEntity) fetchAmbition(Integer.toString(ambition));
+        if(amb.getId() == ambition){
+            data.setAmbition(amb.getDescription());
+        }
+
+    }
+
+
+    public void addAmbitionTag(UserEntity data, int course_id){
+        List<EnrollEntity> enrolls = fetchAllEnrolls(data.getId());
+        int ambition = -1;
+        for(EnrollEntity e : enrolls){
+            if(e.getCourse_id() == course_id){
+                ambition = e.getAmbition();
                 break;
             }
         }
 
+        AmbitionEntity amb = (AmbitionEntity) fetchAmbition(Integer.toString(ambition));
+        if(amb.getId() == ambition){
+            data.setAmbition(amb.getDescription());
+        }
     }
 }
 
