@@ -56,12 +56,55 @@
             <h1> My proposals</h1>
             <div id="proposalfromme">
                 <h3> Sent</h3>
-                <div id="proposal">
-
+                <div class="proposal">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Ambition</th>
+                        <th>Settings</th>
+                    </tr>
+                    <c:forEach items="${sent_proposals}" var="prop">
+                        <tr>
+                            <td>${prop.touser_tag}</td>
+                            <td>${prop.course_tag}</td>
+                            <td>${prop.ambition}</td>
+                            <td>
+                                <form action ="search" method="post">
+                                    <input type="hidden" name="proposal_id" value="${prop.id}">
+                                    <input type="submit" value="Retract">
+                                </form>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
                 </div>
             </div>
             <div id="proposaltome">
                 <h3> Received </h3></br>
+                <div class="proposal">
+                <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Ambition</th>
+                    <th>Settings</th>
+                </tr>
+                <c:forEach items="${received_proposals}" var="prop">
+                    <tr>
+                        <td>${prop.user_tag}</td>
+                        <td>${prop.course_tag}</td>
+                        <td>${prop.ambition}</td>
+                        <td>
+                            <form action ="search" method="post">
+                                <input type="hidden" name="proposal_id" value="${prop.id}">
+                                <input type="submit" value="Accept">
+                                <input type="submit" value="Reject">
+                            </form>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </table>
             </div>
         </div>
     </center>

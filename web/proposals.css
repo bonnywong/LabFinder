@@ -24,9 +24,9 @@
     margin: 20px 20px 20px 20px;
     text-align: left;
 }
-#proposal{
+.proposal{
     background-color: white;
-    width: 30px;
+    width: 95%;
     hight: 300px;
     padding:10px;
     margin: 20px 20px 20px 20px;
