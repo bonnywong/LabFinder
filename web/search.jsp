@@ -35,6 +35,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="search.css">
     <title>Searchsite</title>
+    <script src="http://www.kryogenix.org/code/browser/sorttable/sorttable.js" type="text/javascript"></script>
 </head>
 <body>
 <center>
@@ -98,7 +99,7 @@
             </div>
             <div id="searchpartright"><!-- HERE WE ARE INSERTING THE LIST OF ALL AVAILABLE PROPOSALS WE WISH TO RETRACT AND ACCEPT-->
                 Course: ${current_course.code} - ${current_course.name}
-                <table id="t01">
+                <table id="t01" class="sortable">
                     <tr>
                         <th>Name</th>
                         <th>Course</th>
@@ -129,18 +130,8 @@
         </div>
         <div id="resultpart">
             <h2>Result </h2>
-            <select>
-                <option selected>Filter result</option>
-                <option value="Name">Name</option>
-                <option value="Ambition">Ambition</option>
-
-            </select>
-            <%
-
-            %>
-
             Course: ${current_course.code} - ${current_course.name}
-            <table id="t01">
+            <table id="t01" class="sortable">
                 <tr>
                     <th>Name</th>
                     <th>School</th>
@@ -148,6 +139,7 @@
                     <th>Ambition</th>
                     <th>Settings</th>
                 </tr>
+
                 <c:forEach items="${course_users}" var="user">
                     <tr>
                         <td>${user.name}</td>
@@ -155,8 +147,6 @@
                         <td>${user.program}</td>
                         <td>${user.ambition}</td>
                         <td>
-
-
                             <form action ="search" method="post">
                                 <input type="hidden" name="propose" value="yes">
                                 <input type="hidden" name="proposed_user_id" value="${user.id}">
@@ -166,7 +156,6 @@
                         </td>
                     </tr>
                 </c:forEach>
-
             </table>
         </div>
     </div>
