@@ -93,6 +93,17 @@ public class JPAStore {
         return query.getResultList();
     }
 
+
+    /**
+     * Fetch all users in database.
+     * @return List of all UserEntities in database.
+     */
+    public List<AmbitionEntity> fetchAllAmbitions() {
+        //TODO: Case if db has no Users
+        Query query = em.createQuery("select u from AmbitionEntity u");
+        return query.getResultList();
+    }
+
     /**
      * Stores a UserEntity into the database.
      * @param course UserEntity to be stored

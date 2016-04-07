@@ -1,7 +1,8 @@
 <%@ page import="Persist.JPAStore" %>
 <%@ page import="Models.UserEntity" %>
 <%@ page import="facebook4j.Facebook" %>
-<%@ page import="Models.CourseEntity" %><%--
+<%@ page import="Models.CourseEntity" %>
+<%@ page import="Models.AmbitionEntity" %><%--
   Created by IntelliJ IDEA.
   User: swebo_000
   Date: 2016-03-29
@@ -20,6 +21,9 @@
     String profile_img = new String("http://graph.facebook.com/" + facebookId + "/picture");
     //String profile_img = new String("http://graph.facebook.com/" + facebookId + "/picture?type=square");
     String primg = "https://scontent.xx.fbcdn.net/hprofile-xta1/v/t1.0-1/p50x50/11046478_10152321835823078_2224262110139808625_n.jpg?oh=6602521d12b107d4906eb79495c21e5a&oe=578C303F";
+
+    AmbitionEntity[] ambitions = (AmbitionEntity[]) request.getAttribute("ambitions");
+    request.setAttribute("ambitions", ambitions);
 %>
 
 
@@ -107,13 +111,13 @@
                     </c:forEach>
                     </select>
 
-                    <select name="ambition">
-                        <option value="1">1 - Will give all for 'A'</option>
-                        <option value="2">2 - Prepared to work for a 'B'</option>
-                        <option value="3">3 - I want at least a 'C'</option>
-                        <option value="4">4 - Anything higher than 'D'</option>
-                        <option value="5">5 - Minimal effort, happy with 'E'</option>
-                    </select>
+
+                        <select name="ambition">
+                            <c:forEach items="${ambitions}" var="ambition">
+                                <option selected value="${ambition.id}">${ambition.id} - ${ambition.description}</option>
+                            </c:forEach>
+                        </select><br>
+
 
                     <input type="submit" value="Enroll">
                 </form>

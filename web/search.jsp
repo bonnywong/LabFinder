@@ -2,7 +2,8 @@
 <%@ page import="Models.UserEntity" %>
 <%@ page import="facebook4j.Facebook" %>
 <%@ page import="Models.CourseEntity" %>
-<%@ page import="Models.ProposalEntity" %><%--
+<%@ page import="Models.ProposalEntity" %>
+<%@ page import="Models.AmbitionEntity" %><%--
   Created by IntelliJ IDEA.
   User: swebo_000
   Date: 2016-03-29
@@ -27,6 +28,10 @@
     request.setAttribute("course_users", course_users);
     CourseEntity current_course = (CourseEntity) request.getAttribute("current_course");
     request.setAttribute("current_course", current_course);
+
+
+    AmbitionEntity[] ambitions = (AmbitionEntity[]) request.getAttribute("ambitions");
+    request.setAttribute("ambitions", ambitions);
 
     ProposalEntity[] received_proposals = (ProposalEntity[]) request.getAttribute("received_proposals");
     ProposalEntity[] sent_proposals = (ProposalEntity[]) request.getAttribute("sent_proposals");
@@ -72,14 +77,15 @@
                         </c:forEach>
                     </select><br>
                     <text>Select ambition:</text><br>
+
                     <select name="grade">
                         <option selected value="all">Search for all</option>
-                        <option value="1">AAAAAAAAAA!!!!!</option>
-                        <option value="2">Prepared to work for a good grade.</option>
-                        <option value="3">C sounds fine to me</option>
-                        <option value="4">Maybe something above E at least</option>
-                        <option value="5">Minimal effort, just want to pass</option>
+                        <c:forEach items="${ambitions}" var="ambition">
+                            <option selected value="${ambition.id}">${ambition.id} - ${ambition.description}</option>
+                        </c:forEach>
                     </select><br>
+
+
                     <text>Select school:</text><br>
                     <select name="school">
                         <option selected value="all">Search for all</option>
@@ -93,6 +99,7 @@
                         <option value="B">Computer science</option>
                         <option value="C">Media technology</option>
                     </select>
+
                     <input type="submit" value="Find">
                 </form>
 

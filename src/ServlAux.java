@@ -1,3 +1,4 @@
+import Models.AmbitionEntity;
 import Models.CourseEntity;
 import Models.EnrollEntity;
 import Models.UserEntity;
@@ -94,4 +95,12 @@ public class ServlAux {
         return -1;
     }
 
+    public static void attachAllAmbitions(HttpServletRequest request, HttpServletResponse response) {
+        JPAStore db = new JPAStore();
+        List<AmbitionEntity> ambitions = db.fetchAllAmbitions();
+        AmbitionEntity[] ambs = new AmbitionEntity[ambitions.size()];
+        ambs = ambitions.toArray(ambs);
+        System.out.println("\n\n\n\n list size of ambitions is: " + ambitions.size() + "\n\n\n\n");
+        request.setAttribute("ambitions", ambs);
+    }
 }

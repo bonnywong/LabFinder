@@ -48,6 +48,7 @@ public class SearchServlet extends HttpServlet {
         //POST PROCESSING, EVERYTHING UNCONDITIONAL TO BE DONE IN PREPARATION OF THE SEARCH VIEW
         ServlAux.attachMyCourses(request, response);
         ServlAux.attachAllCourses(request, response);
+        ServlAux.attachAllAmbitions(request, response);
         attachUserProposals(request, response);
 
         try {
@@ -95,7 +96,9 @@ public class SearchServlet extends HttpServlet {
 
         ServlAux.attachMyCourses(request, response);
         ServlAux.attachAllCourses(request, response);
+        ServlAux.attachAllAmbitions(request, response);
         attachUserProposals(request, response);
+
 
         try {
             RequestDispatcher rd =

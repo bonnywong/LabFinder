@@ -63,6 +63,7 @@ public class SettingsServlet extends HttpServlet {
 
         ServlAux.attachMyCourses(request, response);
         ServlAux.attachAllCourses(request, response);
+        ServlAux.attachAllAmbitions(request, response);
 
         try {
             RequestDispatcher rd =
@@ -86,6 +87,7 @@ public class SettingsServlet extends HttpServlet {
 
         ServlAux.attachMyCourses(request, response);
         ServlAux.attachAllCourses(request, response);
+        ServlAux.attachAllAmbitions(request, response);
 
         try {
             RequestDispatcher rd =
