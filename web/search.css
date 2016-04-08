@@ -38,7 +38,7 @@ table#t01 th {
 }
 
 #searchpartleft{
-    background-color:#ee11ee;
+    /*background-color: #ffffff;*/
     width:410px;
     height: 210px;
     float:left;
@@ -48,7 +48,7 @@ table#t01 th {
 }
 
 #searchpartright{
-    background-color:#11ee11;
+    /*background-color: #ffffff;*/
     width:410px;
     height: 210px;
     float:right;

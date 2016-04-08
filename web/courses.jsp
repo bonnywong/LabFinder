@@ -181,14 +181,12 @@
 
 <center>
     <ul>
-        <li><a href="#home">Home</a></li>
         <li><a href="search">Search partner</a></li>
         <li><a href="settings">Settings</a></li>
         <li><a href="profile">Profile</a></li>
 
 
         <li style="float:right"><a class="active" href="courses">All Courses</a></li>
-        <li style="float:right"><a class="about" href="#about">About</a></li>
         <li style="float:right"><a class="logout" href="logout">Logout</a></li>
     </ul>
 

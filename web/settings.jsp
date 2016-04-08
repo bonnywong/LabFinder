@@ -38,15 +38,11 @@
 
 <center>
     <ul>
-        <li><a href="#home">Home</a></li>
         <li><a href="search">Search partner</a></li>
         <li><a class="active">Settings</a></li>
         <li><a href="profile">Profile</a></li>
         <li><a href="proposals">My proposals</a></li>
-
-
         <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
-        <li style="float:right"><a class="about" href="#about">About</a></li>
         <li style="float:right"><a class="logout" href="logout">Logout</a></li>
     </ul>
 
@@ -57,9 +53,9 @@
             <img src="<%=profile_img%>"/>
 
             <div id="name">
-                <h2>${facebook.name}</h2>
-                <h2><%=currentUser.getProgram() %> - <%=currentUser.getMaster() %> </h2>
-                <h2><%=currentUser.getSchool() %></h2>
+                <h3>${facebook.name}</h3>
+                <h4><%=currentUser.getProgram() %> - <%=currentUser.getMaster() %> </h4>
+                <h4><%=currentUser.getSchool() %></h4>
                 </br>
             </div>
 
@@ -69,7 +65,7 @@
 
                     <input type="hidden" name="user_name" value=${facebook.name}>
                     <input type="hidden" name="user_fb_id" value=${facebook.id}>
-
+                    <h5>
                     Current Email:
                     <input type="text" name="email" value="<%=currentUser.getEmail()%>">
                     <br>
@@ -89,7 +85,7 @@
                     Current Comment:
                     <input type="text" name="comments" value="<%=currentUser.getComments()%>">
                     <br>
-
+                    </h5>
                     <input type="submit" value="Submit.">
 
                 </form>
@@ -150,9 +146,9 @@
                     request.setAttribute("my_courses", my_courses);
                 %>
 
-                <h5>All courses I'm taking:</h5>
+                <h4>All courses I'm taking:</h4>
                 <c:forEach items="${my_courses}" var="course">
-                    <h5><c:out value="${course.code}" /> - <c:out value="${course.name}" /></h5>
+                    <text><c:out value="${course.code}" /> - <c:out value="${course.name}" /></text>
                 </c:forEach>
             </div>
         </div>

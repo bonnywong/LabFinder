@@ -45,12 +45,10 @@
 <body>
 <center>
     <ul>
-        <li><a href="#home">Home</a></li>
         <li><a class="active">Search partner</a></li>
         <li><a href="settings">Settings</a> </li>
         <li><a href="profile">Profile</a></li>
         <li><a href="proposals">My proposals</a></li>
-        <li style="float:right"><a class="about" href="#about">About</a></li>
         <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
         <li style="float:right"><a class="logout" href="#logout">Logout</a></li>
     </ul>
@@ -106,7 +104,7 @@
 
             </div>
             <div id="searchpartright"><!-- HERE WE ARE INSERTING THE LIST OF ALL AVAILABLE PROPOSALS WE WISH TO RETRACT AND ACCEPT-->
-                Course: ${current_course.code} - ${current_course.name}
+                Proposals
                 <table id="t01" class="sortable">
                     <tr>
                         <th>Name</th>

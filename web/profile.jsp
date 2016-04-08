@@ -23,6 +23,7 @@
 %>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
 
         #wrapper{
@@ -87,9 +88,13 @@
         }
 
         h1 {
-            padding: 10px;
-            text-align: left;
             color: #1b201e;
+            font-family: 'Raleway',sans-serif;
+            font-size: 50px;
+            font-weight: 800;
+            line-height: 50px;
+            margin: 0 0 24px;
+            text-align: left;
         }
         h2 {
             padding: 1px;
@@ -115,12 +120,20 @@
             font-size: 12px;
             font-weight: 10;
             margin: 0 0 0 0px;
+            text-align: center;
         }
 
-        h5 {
+        smallh {
             color: #1b201e;
             font-family: 'Raleway',sans-serif;
-            font-size: 11px;
+            font-size: 20px;
+            font-weight: 10;
+            margin: 10px 0 0 0px;
+        }
+        text {
+            text-align: left;
+            font-family: 'Raleway',sans-serif;
+            font-size: 15px;
             font-weight: 10;
             margin: 0 0 0 0px;
         }
@@ -179,15 +192,11 @@
 
 <center>
     <ul>
-        <li><a href="#home">Home</a></li>
         <li><a href="search">Search partner</a></li>
         <li><a href="settings">Settings</a></li>
         <li><a class="active">Profile</a></li>
         <li><a href="proposals">My proposals</a></li>
-
-
         <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
-        <li style="float:right"><a class="about" href="#about">About</a></li>
         <li style="float:right"><a class="logout" href="logout">Logout</a></li>
     </ul>
 
@@ -198,14 +207,14 @@
             <img src="<%=profile_img%>"/>
 
             <div id="name">
-                <h2>${facebook.name}</h2>
-                <h2><%=currentUser.getProgram() %> - <%=currentUser.getMaster() %> </h2>
-                <h2><%=currentUser.getSchool() %></h2>
+                <h3>${facebook.name}</h3>
+                <h4><%=currentUser.getProgram() %> - <%=currentUser.getMaster() %> </h4>
+                <h4><%=currentUser.getSchool() %></h4>
                 </br>
             </div>
 
             <div id="description">
-                <%=currentUser.getComments() %>
+                <text><%=currentUser.getComments() %></text>
             </div>
         </div>
 
@@ -216,9 +225,9 @@
                     request.setAttribute("my_courses", my_courses);
                 %>
 
-                <h5>All courses I'm taking:</h5>
+                <h4>All courses I'm taking:</h4>
                 <c:forEach items="${my_courses}" var="course">
-                    <h5><c:out value="${course.code}" /> - <c:out value="${course.name}" /></h5>
+                    <text><c:out value="${course.code}" /> - <c:out value="${course.name}" /></text>
                 </c:forEach>
             </div>
         </div>

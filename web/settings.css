@@ -88,12 +88,12 @@ h4 {
     font-size: 12px;
     font-weight: 10;
     margin: 0 0 0 0px;
+    text-align: center;
 }
-
-h5 {
-    color: #1b201e;
+text {
+    text-align: left;
     font-family: 'Raleway',sans-serif;
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 10;
     margin: 0 0 0 0px;
 }
