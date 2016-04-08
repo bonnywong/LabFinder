@@ -29,7 +29,7 @@
         <li><a class="active">My teams</a></li>
         <li style="float:right"><a class="about" href="#about">About</a></li>
         <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
-        <li style="float:right"><a class="logout" href="#logout">Logout</a></li>
+        <li style="float:right"><a class="logout" href="logout">Logout</a></li>
     </ul>
 
     <div id="wrapper">

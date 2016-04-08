@@ -49,7 +49,7 @@
             <li><a href="labteams">My teams</a></li>
 
             <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
-            <li style="float:right"><a class="logout" href="#logout">Logout</a></li>
+            <li style="float:right"><a class="logout" href="logout">Logout</a></li>
         </ul>
 
         <div id="wrapper">

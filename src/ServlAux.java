@@ -53,6 +53,9 @@ public class ServlAux {
     public static boolean courseIsEnrolled(EnrollEntity c, HttpServletRequest request, HttpServletResponse response){
 
         CourseEntity[] courses = getUserEnrolledCourses(request, response);
+        if (courses.length == 0) {
+            return false;
+        }
         if(courses[0].getCode().equals("FAILCOURSE")){
             return false;
         }
