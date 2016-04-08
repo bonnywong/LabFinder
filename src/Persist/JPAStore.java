@@ -233,6 +233,40 @@ public class JPAStore {
 
     }
 
+    /**
+     * Fetch a CourseEntity by id
+     * @param id
+     * @return
+     */
+    public CourseEntity fetchCourse(int id) {
+        CourseEntity found = em.find(CourseEntity.class, id);
+        return found;
+    }
+
+
+    public void persistLabTeam(LabTeamEntity team) {
+        em.getTransaction().begin();
+        em.persist(team);
+        em.getTransaction().commit();
+    }
+
+    public List<LabTeamEntity> fetchAllLabTeams() {
+        Query query = em.createQuery("select t from LabTeamEntity t");
+        return query.getResultList();
+    }
+
+    public List<LabTeamEntity> fetchOwnLabTeams(int user_id) {
+        Query query = em.createQuery("select t from LabTeamEntity t where t.userAId = :user_id or t.userBId = :user_id");
+        query.setParameter("user_id", user_id);
+        return query.getResultList();
+    }
+
+    public void removeLabTeam(int id) {
+        LabTeamEntity found = em.find(LabTeamEntity.class, id);
+        em.getTransaction().begin();
+        em.remove(found);
+        em.getTransaction().commit();
+    }
 
     public void persistProposal(String proposed_user_id, String proposer_user_id, String course_id) {
         ProposalEntity pe = new ProposalEntity();
@@ -272,6 +306,13 @@ public class JPAStore {
         Query query = em.createQuery("select u from ProposalEntity u where u.proposer_id = :proposer_id");
         query.setParameter("proposer_id", proposer_id);
         return query.getResultList();
+    }
+
+    public void removeProposal(int id) {
+        ProposalEntity p = em.find(ProposalEntity.class, id);
+        em.getTransaction().begin();
+        em.remove(p);
+        em.getTransaction().commit();
     }
 
     public void addCourseTag(ProposalEntity data){

@@ -36,6 +36,10 @@
         <servlet-name>proposals</servlet-name>
         <servlet-class>ProposalServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>labteams</servlet-name>
+        <servlet-class>LabTeamServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>proposals</servlet-name>
@@ -65,10 +69,13 @@
         <servlet-name>courses</servlet-name>
         <url-pattern>/courses</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>profile</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>labteams</servlet-name>
+        <url-pattern>/labteams</url-pattern>
     </servlet-mapping>
     
     <welcome-file-list>

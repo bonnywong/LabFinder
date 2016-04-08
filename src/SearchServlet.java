@@ -1,13 +1,11 @@
-import Models.CourseEntity;
-import Models.EnrollEntity;
-import Models.ProposalEntity;
-import Models.UserEntity;
+import Models.*;
 import Persist.JPAStore;
 import com.sun.deploy.util.ArrayUtil;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +27,8 @@ public class SearchServlet extends HttpServlet {
         String message = "null";
 
         String propose = request.getParameter("propose");
+        System.out.println("\n\n\n\n\n" + propose + "\n\n\n\n");
+
         if(propose != null && propose.equals("yes")){
             String proposed_user_id = request.getParameter("proposed_user_id");
             String proposer_user_id = "";
@@ -44,6 +44,34 @@ public class SearchServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        if(propose != null && propose.equals("retract")) {
+            String proposal_id = request.getParameter("proposal_id");
+            db.removeProposal(Integer.parseInt(proposal_id));
+        }
+
+        if(propose != null && propose.equals("Accept")) {
+            System.out.println("\n\n\n\nAccepting proposal.\n\n\n\n");
+            String proposer_id = request.getParameter("proposer_id");
+            String proposed_id = request.getParameter("proposed_id");
+            String course_id = request.getParameter("course_id");
+            System.out.println("\n\n\n" + proposed_id + " " + proposer_id + "\n\n\n");
+
+            LabTeamEntity team = new LabTeamEntity();
+            team.setCourseId(Integer.parseInt(course_id));
+            team.setUserAId(Integer.parseInt(proposer_id));
+            team.setUserBId(Integer.parseInt(proposed_id));
+            db.persistLabTeam(team);
+
+            String proposal_id = request.getParameter("proposal_id");
+            db.removeProposal(Integer.parseInt(proposal_id));
+        }
+
+        if(propose != null && propose.equals("Reject")) {
+            System.out.println("\n\n\n\nRejecting proposal.\n\n\n\n");
+            String proposal_id = request.getParameter("proposal_id");
+            db.removeProposal(Integer.parseInt(proposal_id));
+        }
+
 
         //POST PROCESSING, EVERYTHING UNCONDITIONAL TO BE DONE IN PREPARATION OF THE SEARCH VIEW
         ServlAux.attachMyCourses(request, response);

@@ -8,7 +8,8 @@
   Time: 03:53
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
@@ -196,6 +197,7 @@
         <li><a href="settings">Settings</a></li>
         <li><a class="active">Profile</a></li>
         <li><a href="proposals">My proposals</a></li>
+        <li><a href="labteams">My teams</a></li>
         <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
         <li style="float:right"><a class="logout" href="logout">Logout</a></li>
     </ul>

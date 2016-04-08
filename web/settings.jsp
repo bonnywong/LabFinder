@@ -42,6 +42,7 @@
         <li><a class="active">Settings</a></li>
         <li><a href="profile">Profile</a></li>
         <li><a href="proposals">My proposals</a></li>
+        <li><a href="labteams">My teams</a></li>
         <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
         <li style="float:right"><a class="logout" href="logout">Logout</a></li>
     </ul>

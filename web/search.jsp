@@ -49,6 +49,7 @@
         <li><a href="settings">Settings</a> </li>
         <li><a href="profile">Profile</a></li>
         <li><a href="proposals">My proposals</a></li>
+        <li><a href="labteams">My teams</a></li>
         <li style="float:right"><a class="courses" href="courses">All Courses</a></li>
         <li style="float:right"><a class="logout" href="#logout">Logout</a></li>
     </ul>
@@ -109,7 +110,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Course</th>
-                        <th>Ambition</th>
+                        <th>My Ambition</th>
                         <th>Settings</th>
                     </tr>
                     <c:forEach items="${received_proposals}" var="prop">
@@ -120,8 +121,11 @@
                             <td>
                                 <form action ="search" method="post">
                                     <input type="hidden" name="proposal_id" value="${prop.id}">
-                                    <input type="submit" value="Accept">
-                                    <input type="submit" value="Reject">
+                                    <input type="hidden" name="course_id" value="${prop.course_id}">
+                                    <input type="hidden" name="proposer_id" value="${prop.proposer_id}">
+                                    <input type="hidden" name="proposed_id" value="${prop.proposed_id}">
+                                    <input type="submit" name="propose" value="Accept">
+                                    <input type="submit" name="propose" value="Reject">
                                 </form>
                             </td>
                         </tr>
@@ -133,6 +137,7 @@
                             <td>${prop.ambition}</td>
                             <td>
                                 <form action ="search" method="post">
+                                    <input type="hidden" name="propose" value="retract">
                                     <input type="hidden" name="proposal_id" value="${prop.id}">
                                     <input type="submit" value="Retract">
                                 </form>
@@ -162,7 +167,7 @@
                         <td>${user.program}</td>
                         <td>${user.ambition}</td>
                         <td>
-                            <form action ="search" method="post">
+                            <form action ="search" method="post" onsubmit="window.location.reload()">
                                 <input type="hidden" name="propose" value="yes">
                                 <input type="hidden" name="proposed_user_id" value="${user.id}">
                                 <input type="hidden" name="course_id" value="${current_course.course_id}">

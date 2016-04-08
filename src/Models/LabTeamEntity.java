@@ -3,17 +3,15 @@ package Models;
 import javax.persistence.*;
 
 /**
- * Created by swebo_000 on 2016-03-29.
+ * Created by swebo_000 on 2016-04-08.
  */
 @Entity
-@Table(name = "LabTeam", schema = "fypniqhc_intnet16")
+@Table(name = "LabTeam", schema = "fypniqhc_intnet16", catalog = "")
 public class LabTeamEntity {
     private int id;
-    private int user_a_id;
-    private int user_b_id;
-    private int course_id;
-
-
+    private int userAId;
+    private int userBId;
+    private Integer courseId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,42 +19,40 @@ public class LabTeamEntity {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
 
     @Basic
     @Column(name = "user_a_id")
-    public int getUser_a_id() {
-        return user_a_id;
-    }
-    public void setUser_a_id(int user_a_d) {
-        this.user_a_id = user_a_id;
+    public int getUserAId() {
+        return userAId;
     }
 
+    public void setUserAId(int userAId) {
+        this.userAId = userAId;
+    }
 
     @Basic
     @Column(name = "user_b_id")
-    public int getUser_b_id() {
-        return user_b_id;
-    }
-    public void setUser_b_id(int user_b_d) {
-        this.user_b_id = user_b_id;
+    public int getUserBId() {
+        return userBId;
     }
 
+    public void setUserBId(int userBId) {
+        this.userBId = userBId;
+    }
 
     @Basic
     @Column(name = "course_id")
-    public int getCourse_id() {
-        return course_id;
-    }
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public Integer getCourseId() {
+        return courseId;
     }
 
-
-
-
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -65,30 +61,20 @@ public class LabTeamEntity {
 
         LabTeamEntity that = (LabTeamEntity) o;
 
-        //private int course_id;
-        //private String code;
-        //private String name;
-        //private String description;
-
-
-        if (course_id != that.course_id) return false;
         if (id != that.id) return false;
-        if (user_a_id != that.user_a_id) return false;
-        if (user_b_id != that.user_b_id) return false;
-
-
+        if (userAId != that.userAId) return false;
+        if (userBId != that.userBId) return false;
+        if (courseId != null ? !courseId.equals(that.courseId) : that.courseId != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        //TODO: are we even using this? I don't know how to finish :<
-        //int result = course_id;
-        //result = 31 * result + (int) (id ^ (id >>> 32));
-        //result = 31 * result + (course_id != null ? course_id() : 0);
-        //result = 31 * result + (code != null ? code.hashCode() : 0);
-        //result = 31 * result + (description != null ? description.hashCode() : 0);
-        return 0;
+        int result = id;
+        result = 31 * result + userAId;
+        result = 31 * result + userBId;
+        result = 31 * result + (courseId != null ? courseId.hashCode() : 0);
+        return result;
     }
 }
